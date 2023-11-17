@@ -1,11 +1,6 @@
 version: "3"
 
 services:
-  php:
-    build: "./php/"
-    volumes:
-      - ./backend/src:/var/www/html
-
   database:
     image: mysql:latest
     environment:
@@ -20,6 +15,13 @@ services:
       - 3306:3306
     volumes:
       - ./.data/database-data:/var/lib/mysql
+
+  php:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-php
+    volumes:
+      - ./backend/src:/var/www/html
 
   backend:
     build:
