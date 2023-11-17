@@ -1,7 +1,7 @@
 <?php
-require_once "lib/utility.php";
+require_once "_lib/utility.php";
 
-function handler(object $REQUEST): array
+function handler($REQUEST): array
 {
   $METHOD = $REQUEST["method"];
 

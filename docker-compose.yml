@@ -1,28 +1,36 @@
 version: "3"
 
 services:
+  php:
+    build: "./php/"
+    volumes:
+      - ./backend/src:/var/www/html
+
   database:
     image: mysql:latest
     environment:
+      MYSQL_ROOT_HOST: localhost
+
+      MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: secret
 
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
-      MYSQL_DATABASE: mydatabase
-    volumes:
-      - ./.data/database-data:/var/lib/mysql
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     ports:
       - 3306:3306
+    volumes:
+      - ./.data/database-data:/var/lib/mysql
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    volumes:
-      - ./backend/src:/var/www/html
     ports:
       - 8080:80
+    volumes:
+      - ./backend/src:/var/www/html
     depends_on:
+      - php
       - database
 
   frontend:
