@@ -1,6 +1,5 @@
 <?php
 
-
 function connect(string $SOCKET = "")
 {
   $PORT = 3306;
