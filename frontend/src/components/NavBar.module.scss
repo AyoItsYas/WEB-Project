@@ -1,5 +1,27 @@
 .NavBar {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+
+  .NavBarLogo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 150px;
+
+    img {
+      object-fit: scale-down !important;
+    }
+  }
+
+  .NavBarItems {
+    display: flex;
+    margin-left: auto;
+    gap: 20px;
+    flex-direction: row;
+  }
 }
 
-.NavBarItem {
-}
+.NavBarItem {}

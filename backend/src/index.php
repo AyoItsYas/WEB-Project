@@ -1,10 +1,8 @@
 <?php
 require_once "_lib/utility.php";
 
-function handler($REQUEST): array
+function handler(): array
 {
-  $METHOD = $REQUEST["method"];
-
   $STST = 200;
   $DATA = [
     "status" => $STST,
@@ -14,6 +12,6 @@ function handler($REQUEST): array
   return [$STST, $DATA];
 }
 
-respond(...handler($_REQUEST));
+respond(...handler());
 
 ?>

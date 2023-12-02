@@ -1,9 +1,25 @@
-import styles from "@/styles/components/NavBar.module.scss";
+import Image from "next/image";
+import styles from "@/components/NavBar.module.scss";
 
-function NavBar({ children }: { children: React.ReactNode }) {
+function NavBar({
+  children,
+  logoSrc = "/logo.png",
+  logoProps = { fill: true },
+}: {
+  children: React.ReactNode;
+  logoSrc?: string;
+  logoProps?: {
+    fill?: boolean;
+    width?: number;
+    height?: number;
+  };
+}) {
   return (
     <nav className={styles.NavBar}>
-      <ul>{children}</ul>
+      <div className={styles.NavBarLogo}>
+        <Image alt='Navigation Bar Logo' src={logoSrc} {...logoProps} />
+      </div>
+      <div className={styles.NavBarItems}>{children}</div>
     </nav>
   );
 }
@@ -11,10 +27,11 @@ function NavBar({ children }: { children: React.ReactNode }) {
 NavBar.style = styles.NavBar;
 
 function NavBarItem({ children }: { children: React.ReactNode }) {
-  return <li className={styles.NavBarItem}>{children}</li>;
+  return <div className={styles.NavBarItem}>{children}</div>;
 }
 
 NavBar.Item = NavBarItem;
 NavBarItem.style = styles.NavBarItem;
 
 export default NavBar;
+export { NavBar, NavBarItem };
