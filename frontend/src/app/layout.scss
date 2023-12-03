@@ -17,8 +17,12 @@ body {
 }
 
 body > * {
-  margin: 0 100px;
+  padding: 0 100px;
 }
 
 main {
+  height: calc(100vh - 400px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
