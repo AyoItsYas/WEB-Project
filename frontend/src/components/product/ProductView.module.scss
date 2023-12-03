@@ -1,0 +1,80 @@
+@mixin common {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  height: 100%;
+
+  padding: 50px;
+}
+
+.ProductView {
+  @include common;
+
+  $MARGIN_X : 30px;
+  height: calc(100% - ($MARGIN_X * 2));
+
+  position: relative;
+  margin: $MARGIN_X 0;
+
+  .ProductImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+      aspect-ratio: 1/1;
+      object-fit: contain;
+    }
+  }
+}
+
+.ProductDetails {
+  @include common;
+
+  .PricingRail {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+
+
+  }
+}
+
+.ProductPrice {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: inherit;
+  font-weight: bold;
+  border: 3px dotted black;
+  background: rgb(219, 219, 219);
+  border-radius: 10px;
+}
+
+.ProductActionButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+
+  button {
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 15px 20px;
+    flex: 1 1 auto;
+    background-color: #eeadb5d0;
+    border: none;
+    border: 3px dotted #e64e4e;
+    // border: 1px solid grey;
+  }
+}

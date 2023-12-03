@@ -1,18 +1,20 @@
 import React from 'react';
+
 import LoginForm from '@/components/login/LoginForm';
 import SignupForm from '@/components/login/SignupForm';
 
+import style from './layout.module.scss';
 
+export default function Page() {
+  return (
+  <div className={style.container}>
+    <div className="LoginBox">
+      <LoginForm />
+    </div>
 
-export default () => (
-  <div className="LoginPage">
-    <div className="LoginContainer">
-      <div className="LoginBox">
-        <LoginForm />
-      </div>
-      <div className="SignupBox">
-        <SignupForm />
-      </div>
+    <div className="SignupBox">
+      <SignupForm />
     </div>
   </div>
-);
+)
+};

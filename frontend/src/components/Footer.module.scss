@@ -1,29 +1,28 @@
 .Footer {
-    display: flex;
-    justify-content: flex-start;
-    background-color: #eeadb5d0;
-    color: #000000;
-    padding: 20px;
-    text-align: center; 
-    
-  }
-  
-  .Footer > div {
-    flex: 1;
-    margin: 0 10px;
-  }
-  
-  .Footer h4 {
-    font-size: 18px;
-  }
-  
-  .Footer p {
-    font-size: 14px;
-  }
-  
-  .Footer a{
+  display: flex;
+  justify-content: flex-start;
+  background-color: #eeadb5d0;
+  color: #000000;
+  text-align: center;
+  height: 130px;
+  align-items: center;
+
+  a {
     text-decoration: none;
     color: #000000;
     font-size: 25px;
     font-weight: 500;
   }
+
+  p {
+    font-size: 14px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  div {
+    flex: 1;
+  }
+}

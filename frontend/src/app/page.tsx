@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Home({ children }) {
-  return <main>{children}x</main>;
+export default function Home({ children }: { children: React.ReactNode }) {
+  return <div>Home Page</div>;
 }

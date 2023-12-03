@@ -31,11 +31,9 @@ export default function RootLayout({
           </NavBar.Item>
         </NavBar>
 
-        {children}
+        <main>{children}</main>
 
-        <Footer>
-
-        </Footer>
+        <Footer />
       </body>
     </html>
   );

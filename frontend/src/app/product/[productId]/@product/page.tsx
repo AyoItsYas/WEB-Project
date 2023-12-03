@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ProductView from '@/components/product/ProductView';
 
 import type { Product } from '../../../../../types';
 
@@ -7,19 +7,9 @@ export default async function Page({ params }: { params: { productId: string } }
 
   const product = data.find((product) => product.id.toString() === params.productId);
 
-  if (product) {
-    return (
-      <div>
-        <h1>{product.name}</h1>
-
-        <Image src={product.image} width={300} height={300} alt={product.name} />
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <h1>Product not found</h1>
-      </div>
-    );
+  if (!product) {
+    return <div>Product not found</div>;
   }
+
+  return <ProductView product={product} />
 }
