@@ -9,11 +9,11 @@ export default function Page() {
   return (
   <div className={style.container}>
     <div className="LoginBox">
-      <LoginForm />
+      <LoginForm></LoginForm>
     </div>
 
     <div className="SignupBox">
-      <SignupForm />
+     <SignupForm></SignupForm>
     </div>
   </div>
 )
