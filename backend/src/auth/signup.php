@@ -29,7 +29,7 @@ function handler(): array
 
   // processing the data through our endpoint logic
   $DB_CONN = connect("users"); // connecting to the users table in the database
-
+  
   // Check if user already exists
   $SQL = "SELECT * FROM users WHERE email = '$EMAIL'"; // the query to be executed
   $RESULT = mysqli_query($DB_CONN, $SQL); // executing the query we get an array of rows as a result
