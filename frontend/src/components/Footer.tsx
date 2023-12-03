@@ -5,16 +5,14 @@ function FooterModule(){
     return (
         <footer className={styles.Footer}>
           <div>
-            <h4>About Us</h4>
-            <p>We are Kpop Stans</p>
+            <a href="">About Us</a>
+            <p>WE are kpop stans</p>
+            <p>FAQ</p>
           </div>
           <div>
-            <h4>Contact Us</h4>
+            <a href="">Contact Us</a>
             <p>Email: contact@example.com</p>
             <p>Phone: +1 (123) 456-7890</p>
-          </div>
-          <div>
-            <h1>Sue us here</h1>
           </div>
         </footer>
     )
