@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Footer from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
 
 import "@/styles/globals.scss";
 
@@ -32,7 +32,7 @@ export default function RootLayout({
         </NavBar>
         {children}
         <Footer>
-          
+
         </Footer>
       </body>
     </html>
