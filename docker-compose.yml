@@ -4,10 +4,8 @@ services:
   database:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_HOST: localhost
-
       MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: password
 
       MYSQL_USER: user
       MYSQL_PASSWORD: password
@@ -15,6 +13,7 @@ services:
       - 3306:3306
     volumes:
       - ./.data/database-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
     build:
@@ -23,6 +22,7 @@ services:
     ports:
       - 8080:80
     volumes:
+      - ./.data/public:/var/www/html
       - ./backend/src:/var/www/html
     depends_on:
       - database
@@ -34,5 +34,5 @@ services:
     ports:
       - 80:3000
     depends_on:
-      - backend
       - database
+      - backend

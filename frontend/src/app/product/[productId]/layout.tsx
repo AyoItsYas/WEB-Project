@@ -47,9 +47,9 @@ export default function RootLayout({
           {params.productId}
         </label>
 
-      <button type="button" onClick={() => router.push(reviewPageURL)}>
-        Go to Product Reviews
-      </button>
+        <button type="button" onClick={() => router.push(reviewPageURL)}>
+          Go to Product Reviews
+        </button>
       </div>
 
       <div>
