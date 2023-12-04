@@ -14,6 +14,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background: rgba(255, 226, 255, 0.259);
 }
 
 body > * {
@@ -25,4 +26,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: space-between;
+
+  * {
+    &:first-child {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
 }

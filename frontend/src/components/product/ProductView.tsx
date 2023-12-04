@@ -22,10 +22,17 @@ function ProductDetails({ product }: { product: Product }) {
       <span className={styles.PricingRail}>
         <h1>{product.name}</h1>
 
-        <div className={styles.ProductPrice}>
-          <span>{product.price}</span>
-          <span>LKR</span>
-        </div>
+        <span className={styles.Indicators}>
+          <div className={styles.ProductDiscount}>
+            <span>50%</span>
+            <span>OFF</span>
+          </div>
+
+          <div className={styles.ProductPrice}>
+            <span>{product.price}</span>
+            <span>LKR</span>
+          </div>
+        </span>
       </span>
 
       <p>{product.description}</p>
@@ -33,7 +40,6 @@ function ProductDetails({ product }: { product: Product }) {
       <span className={styles.ProductActionButtons}>
         <button>Add to Cart</button>
         <button>Buy Now</button>
-
       </span>
     </div>
   );
