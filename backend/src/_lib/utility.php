@@ -1,12 +1,27 @@
 <?php
 
-function respond($HANDLER): void
+function respond($STST, $DATA): void
 {
-  [$STST, $DATA] = $HANDLER();
-
   http_response_code($STST);
   header('Content-Type: application/json; charset=utf-8');
   echo json_encode($DATA);
+}
+
+function extractFields($REQUEST, array $FIELDS): array
+{
+  $DATA = [];
+  $ERROR = null;
+
+  foreach ($FIELDS as $FIELD) {
+    if (!isset($REQUEST[$FIELD])) {
+      $ERROR = "Missing field: $FIELD";
+      break;
+    }
+
+    $DATA += [$REQUEST[$FIELD]];
+  }
+
+  return [$ERROR, $DATA];
 }
 
 ?>
