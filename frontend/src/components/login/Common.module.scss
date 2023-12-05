@@ -1,8 +1,8 @@
-$PADDING_X: 50px;
-$PADDING_Y: 30px;
+$PADDING_X: 15px;
+$PADDING_Y: 15px;
 
 .LoginForm {
-  gap: $PADDING_X;
+  gap: 15px;
   height: 100%;
   padding: $PADDING_X $PADDING_Y;
 
@@ -11,55 +11,81 @@ $PADDING_Y: 30px;
   align-items: center;
   justify-content: center;
 
+  border-radius: 5px;
+
+  background: #c19bff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.148);
+
   h2 {
     width: 100%;
-    margin-bottom: auto;
+    margin: 0;
     text-align: center;
+    color: white;
+    font-size: 24px !important;
   }
 
   button {
     width: 100%;
     padding: 10px 20px;
-    margin-top: auto;
+    margin: 0;
 
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 
+    color: white;
+    background: #7f2ad3;
     border: none;
-
-
-    border: 3px dotted #e64e4e;
-    color:  #e64e4e;
-    border-color: #e64e4e;
-    background-color: pink;
-    box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.298);
   }
 
   input {
-    padding: 10px 20px;
+    padding: 10px;
 
     border: none;
+
+    text-align: center;
+    font-size: 14px;
     font-family: inherit;
   }
 
   .inputRowContainer {
-    gap: 10px;
+    gap: 15px;
+    margin: auto 0;
+
+
     display: flex;
     flex-direction: column;
 
     .inputRow {
       gap: 10px;
+      padding: 1px 10px;
+
       display: flex;
       flex-direction: row;
       align-items: center;
 
+      color: rgba(0, 0, 0, 0.457);
+      font-size: 14px;
+
+      text-align: center;
+      border-radius: 5px;
+      background: white;
+      box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.148);
+
+      * {
+        background: transparent;
+      }
+
       *:first-child {
-        width: 30%;
+        width: 40%;
+        border-right: 1px solid rgba(0, 0, 0, 0.457);;
       }
 
       *:last-child {
-        width: 70%;
+        width: 50%;
       }
+
     }
   }
 }

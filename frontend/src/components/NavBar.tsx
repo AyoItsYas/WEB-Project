@@ -17,9 +17,7 @@ function NavBar({
 }) {
   return (
     <nav className={styles.NavBar}>
-      <div className={styles.NavBarLogo}>
-        <Image alt='Navigation Bar Logo' src={logoSrc} {...logoProps} />
-      </div>
+      <h1>Kpop Fiesta</h1>
 
       <div className={styles.NavBarItems}>{children}</div>
     </nav>

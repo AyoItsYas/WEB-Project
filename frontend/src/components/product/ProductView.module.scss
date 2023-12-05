@@ -50,8 +50,10 @@
     gap: 15px;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 3px dotted black;
     font-size: 26px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
 
     .Indicators {
       display: flex;
@@ -66,31 +68,34 @@
     }
 
     @mixin indicator {
-      font-size: 18px ;
+      font-size: 18px;
       padding: 15px 9px !important;
       display: flex;
       flex-direction: column;
       font-weight: bold;
-      border: 3px dotted #e64e4e;
-      justify-content: center
+      border: 3px solid #e64e4e;
+      justify-content: center;
+      text-align: center;
+      border-radius: 5px;
+
     }
 
     .ProductPrice {
-      @include indicator;
-
-      color:  #e64e4e;
-      border-color: #e64e4e;
-      background-color: pink;
-      box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
-    }
-
-    .ProductDiscount {
       @include indicator;
 
       color: #8b4ee6;
       border-color: #8b4ee6;
       background-color: #caa7ff;
       box-shadow: inset 0px 0px 15px 0px rgba(137, 59, 234, 0.259);
+    }
+
+    .ProductDiscount {
+      @include indicator;
+
+      color:  #e64e4e;
+      border-color: #e64e4e;
+      background-color: pink;
+      box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
     }
   }
 }
@@ -102,18 +107,17 @@
   justify-content: center;
 
   button {
-    color:  #e64e4e;
     font-size: 20px;
     font-family: inherit;
     font-weight: bold;
     text-transform: uppercase;
-    // border-radius: 10px;
+    border-radius: 5px;
     padding: 15px 20px;
     flex: 1 1 auto;
-    background-color: #eeadb5d0;
     border: none;
-    border: 3px dotted #e64e4e;
-    box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
-    // border: 1px solid grey;
+
+    color: white;
+    background: #7f2ad3;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.298);
   }
 }

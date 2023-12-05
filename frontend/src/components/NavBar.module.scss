@@ -3,11 +3,14 @@
   position: relative;
   flex-direction: row;
   align-items: center;
-  background-color: #eeadb5d0;
   height: 130px;
 
-  border-bottom: 5px solid #f1777799;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.148);
+  border-bottom: 5px solid #000;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.255);
+
+  border-color: #c19bff;
+  background-color: #ceafff;
+  background: #ceafff;
 
   .NavBarLogo {
     position: relative;
