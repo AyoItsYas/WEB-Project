@@ -72,4 +72,3 @@ function handler(): array
 respond(...handler());
 
 ?>
-```

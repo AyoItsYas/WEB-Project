@@ -40,6 +40,6 @@ function handler(): array
   return [$STST, $DATA];
 }
 
-respond(...handler());
-
+respond(...handler()) ;
+ 
 ?>
