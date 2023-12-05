@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './Common.module.scss';
 
-export default () => (
+export default function SignupForm() {
+  return (
   <div className={`SignupForm ${style.login}`}>
   <h2 className={style.h4}>Sign Up</h2>
   <form className={style.form}>
@@ -26,4 +27,5 @@ export default () => (
     </table>
   </form>
 </div>
-);
+)
+};
