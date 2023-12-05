@@ -27,11 +27,4 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
-
-  * {
-    &:first-child {
-      margin-left: 0 !important;
-      padding-left: 0 !important;
-    }
-  }
 }

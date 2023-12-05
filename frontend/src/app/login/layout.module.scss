@@ -1,20 +1,19 @@
 .container {
   font-family: inherit;
   display: flex;
-  border-radius: 10px;
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
   align-items: center;
-  margin: 20px;
+  gap: 30px;
+  justify-content: center;
+  padding: 50px;
 }
 
 .container > div {
   flex: 1;
-  padding: 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
 }

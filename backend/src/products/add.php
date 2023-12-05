@@ -32,8 +32,8 @@ function handler(): array
     if ($description == null) {
         $STST = 400;
         $DATA = [
-        "status" => $STST,
-        "error" => "Description not provided"
+          "status" => $STST,
+          "error" => "Description not provided"
         ];
 
         return [$STST, $DATA];
@@ -43,8 +43,8 @@ function handler(): array
     if ($image == null) {
         $STST = 400;
         $DATA = [
-        "status" => $STST,
-        "error" => "Image not provided"
+          "status" => $STST,
+          "error" => "Image not provided"
         ];
 
         return [$STST, $DATA];

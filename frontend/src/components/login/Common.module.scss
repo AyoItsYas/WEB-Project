@@ -1,50 +1,65 @@
+$PADDING_X: 50px;
+$PADDING_Y: 30px;
+
 .LoginForm {
-  display: inline-block;
-  background: #f1c5cad0;
-  width: 434px;
-  height: 700px;
-  margin-top: 10%;
+  gap: $PADDING_X;
+  height: 100%;
+  padding: $PADDING_X $PADDING_Y;
 
-  h2{
-    font-family: 'Segoe UI', bold;
-    font-size: 35px;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  form{
-    display: inline-block;
-    align-items: center;
-    height: 270px;
-    width: 350px;
-    margin-bottom: 170px;
+  h2 {
+    width: 100%;
+    margin-bottom: auto;
+    text-align: center;
   }
 
   button {
-    margin-top: 28px;
     width: 100%;
-    height: 60px;
-    background: #e67481d0;
-    border: none;
+    padding: 10px 20px;
+    margin-top: auto;
+
     font-size: 20px;
-    color: #000000d0;
-    cursor: pointer;
-    position: relative;
+    font-weight: bold;
+
+    border: none;
+
+
+    border: 3px dotted #e64e4e;
+    color:  #e64e4e;
+    border-color: #e64e4e;
+    background-color: pink;
+    box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
   }
 
-  .textArea{
-    align-content: center;
-    margin-bottom: 35px;
-    width: 100%;
-    height: 64px;
+  input {
+    padding: 10px 20px;
+
+    border: none;
+    font-family: inherit;
   }
 
-  .textInput {
-    margin-top: 1.2rem;
-    font-size: 20px;
-    border: none;
-    width: 90%;
-    text-align: center;
-    background-color: #ffffffc2;
+  .inputRowContainer {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .inputRow {
+      gap: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      *:first-child {
+        width: 30%;
+      }
+
+      *:last-child {
+        width: 70%;
+      }
+    }
   }
 }
