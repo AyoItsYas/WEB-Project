@@ -1,0 +1,50 @@
+.LoginForm {
+  display: inline-block;
+  background: #f1c5cad0;
+  width: 434px;
+  height: 700px;
+  margin-top: 10%;
+
+  h2{
+    font-family: 'Segoe UI', bold;
+    font-size: 35px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  form{
+    display: inline-block;
+    align-items: center;
+    height: 270px;
+    width: 350px;
+    margin-bottom: 170px;
+  }
+
+  button {
+    margin-top: 28px;
+    width: 100%;
+    height: 60px;
+    background: #e67481d0;
+    border: none;
+    font-size: 20px;
+    color: #000000d0;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .textArea{
+    align-content: center;
+    margin-bottom: 35px;
+    width: 100%;
+    height: 64px;
+  }
+
+  .textInput {
+    margin-top: 1.2rem;
+    font-size: 20px;
+    border: none;
+    width: 90%;
+    text-align: center;
+    background-color: #ffffffc2;
+  }
+}

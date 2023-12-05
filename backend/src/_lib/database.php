@@ -3,10 +3,10 @@
 function connect(string $SOCKET = "")
 {
   $PORT = 3306;
-  $HOSTNAME = "database";
-  $USERNAME = "user";
-  $PASSWORD = "password";
-  $DATABASE = "devDB";
+  $HOSTNAME = "localhost";
+  $USERNAME = "Derset";
+  $PASSWORD = "password123";
+  $DATABASE = "project";
 
   $CONN = mysqli_connect($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE, $PORT, $SOCKET);
 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import styles from "@/components/NavBar.module.scss";
 
 function NavBar({
@@ -19,6 +20,7 @@ function NavBar({
       <div className={styles.NavBarLogo}>
         <Image alt='Navigation Bar Logo' src={logoSrc} {...logoProps} />
       </div>
+
       <div className={styles.NavBarItems}>{children}</div>
     </nav>
   );

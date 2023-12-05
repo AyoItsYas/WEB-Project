@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(255, 226, 255, 0.259);
+}
+
+body > * {
+  padding: 0 100px;
+}
+
+main {
+  height: calc(100vh - 260px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+
+  * {
+    &:first-child {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+}

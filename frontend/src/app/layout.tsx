@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Footer from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 
-import "@/styles/globals.scss";
+import "./layout.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,10 @@ export default function RootLayout({
             <a href='/signup'>Sign Up</a>
           </NavBar.Item>
         </NavBar>
-        {children}
+
+        <main>{children}</main>
+
+        <Footer />
       </body>
     </html>
   );

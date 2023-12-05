@@ -1,78 +1,76 @@
 {
   "status": 200,
   "message": "success",
-  "data": {
-    "products": [
-      {
-        "id": 1,
-        "name": "product 1",
-        "price": 100,
-        "description": "this is product 1",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 2,
-        "name": "product 2",
-        "price": 200,
-        "description": "this is product 2",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 3,
-        "name": "product 3",
-        "price": 300,
-        "description": "this is product 3",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 4,
-        "name": "product 4",
-        "price": 400,
-        "description": "this is product 4",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 5,
-        "name": "product 5",
-        "price": 500,
-        "description": "this is product 5",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 6,
-        "name": "product 6",
-        "price": 600,
-        "description": "this is product 6",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 7,
-        "name": "product 7",
-        "price": 700,
-        "description": "this is product 7",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 8,
-        "name": "product 8",
-        "price": 800,
-        "description": "this is product 8",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 9,
-        "name": "product 9",
-        "price": 900,
-        "description": "this is product 9",
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "id": 10,
-        "name": "product 10",
-        "price": 1000,
-        "description": "this is product 10",
-        "image": "https://via.placeholder.com/150"
-      }
-    ]
-  }
+  "data": [
+    {
+      "id": 1,
+      "name": "Elephant Dildo",
+      "price": 100,
+      "description": "Dildo for dulsara and dulsara only. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "name": "product 2",
+      "price": 200,
+      "description": "this is product 2",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 3,
+      "name": "product 3",
+      "price": 300,
+      "description": "this is product 3",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "name": "product 4",
+      "price": 400,
+      "description": "this is product 4",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 5,
+      "name": "product 5",
+      "price": 500,
+      "description": "this is product 5",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 6,
+      "name": "product 6",
+      "price": 600,
+      "description": "this is product 6",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 7,
+      "name": "product 7",
+      "price": 700,
+      "description": "this is product 7",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 8,
+      "name": "product 8",
+      "price": 800,
+      "description": "this is product 8",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 9,
+      "name": "product 9",
+      "price": 900,
+      "description": "this is product 9",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 10,
+      "name": "product 10",
+      "price": 1000,
+      "description": "this is product 10",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
 }

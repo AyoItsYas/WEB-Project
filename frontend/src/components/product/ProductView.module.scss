@@ -1,0 +1,119 @@
+@mixin common {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  height: 100%;
+
+  padding: 50px;
+}
+
+.ProductView {
+  @include common;
+
+  $MARGIN_X : 30px;
+  height: calc(100% - ($MARGIN_X * 2));
+
+  position: relative;
+  margin: $MARGIN_X 0;
+
+  .ProductImage {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.074);
+
+    img {
+      aspect-ratio: 1/1;
+      object-fit: contain;
+    }
+  }
+}
+
+.ProductDetails {
+  @include common;
+
+  p {
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .PricingRail {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px dotted black;
+    font-size: 26px;
+
+    .Indicators {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin-left: auto;
+
+      * {
+        flex: 1 ;
+
+      }
+    }
+
+    @mixin indicator {
+      font-size: 18px ;
+      padding: 15px 9px !important;
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      border: 3px dotted #e64e4e;
+      justify-content: center
+    }
+
+    .ProductPrice {
+      @include indicator;
+
+      color:  #e64e4e;
+      border-color: #e64e4e;
+      background-color: pink;
+      box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
+    }
+
+    .ProductDiscount {
+      @include indicator;
+
+      color: #8b4ee6;
+      border-color: #8b4ee6;
+      background-color: #caa7ff;
+      box-shadow: inset 0px 0px 15px 0px rgba(137, 59, 234, 0.259);
+    }
+  }
+}
+
+.ProductActionButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+
+  button {
+    color:  #e64e4e;
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    // border-radius: 10px;
+    padding: 15px 20px;
+    flex: 1 1 auto;
+    background-color: #eeadb5d0;
+    border: none;
+    border: 3px dotted #e64e4e;
+    box-shadow: inset 0px 0px 15px 0px rgba(255, 0, 0, 0.259);
+    // border: 1px solid grey;
+  }
+}
