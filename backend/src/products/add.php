@@ -28,8 +28,28 @@ function handler(): array
     return [$STST, $DATA];
   }
 
+  $description = $_POST["description"] ?? null;
+    if ($description == null) {
+        $STST = 400;
+        $DATA = [
+        "status" => $STST,
+        "error" => "Description not provided"
+        ];
 
-  
+        return [$STST, $DATA];
+    }
+
+  $image = $_POST["image"] ?? null;
+    if ($image == null) {
+        $STST = 400;
+        $DATA = [
+        "status" => $STST,
+        "error" => "Image not provided"
+        ];
+
+        return [$STST, $DATA];
+    }
+
 
   // processing the data through our endpoint logic
   $DB_CONN = connect("products"); // connecting to the products table in the database
