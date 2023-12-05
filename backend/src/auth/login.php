@@ -7,13 +7,13 @@ function handler(): array
 {
   // getting the data that is sent from the frontend
 
-  [$ERROR, [
-    $EMAIL, $PASSWORD
-  ]] = extractFields($_POST, ["email", "password"]);
+  [$ERROR, $DATA] = extractFields($_POST, ["email", "password"]);
 
   if ($ERROR) {
     return [400, ["status" => 400, "error" => $ERROR]];
   }
+
+  [$EMAIL, $PASSWORD] = $DATA;
 
   // processing the data through our endpoint logic
 

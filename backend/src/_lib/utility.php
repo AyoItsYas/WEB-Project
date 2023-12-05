@@ -7,7 +7,7 @@ function respond($STST, $DATA): void
   echo json_encode($DATA);
 }
 
-function extractFields($REQUEST, $FIELDS): array
+function extractFields($REQUEST, array $FIELDS): array
 {
   $DATA = [];
   $ERROR = null;
