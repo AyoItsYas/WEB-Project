@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import styles from "./ProductView.module.scss";
 
-import type { Product } from "../../../types";
+import type { Product } from "../../types";
 
 export default function ProductView({ product }: { product: Product }) {
   return (

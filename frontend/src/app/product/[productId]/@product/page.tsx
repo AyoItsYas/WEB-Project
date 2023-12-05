@@ -1,6 +1,6 @@
 import ProductView from '@/components/product/ProductView';
 
-import type { Product } from '../../../../../types';
+import type { Product } from '../../../../types';
 
 export default async function Page({ params }: { params: { productId: string } }) {
   const data : Array<Product> = await fetch('http://localhost:3000/api/products.json').then((res) => res.json()).then((res) => res.data)

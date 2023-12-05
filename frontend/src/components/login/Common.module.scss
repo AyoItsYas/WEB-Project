@@ -16,18 +16,10 @@ $PADDING_Y: 15px;
   background: #c19bff;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.148);
 
-  h2 {
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    color: white;
-    font-size: 24px !important;
-  }
-
   button {
     width: 100%;
     padding: 10px 20px;
-    margin: 0;
+    // margin-top: auto;
 
     font-size: 18px;
     font-weight: bold;
@@ -51,7 +43,7 @@ $PADDING_Y: 15px;
 
   .inputRowContainer {
     gap: 15px;
-    margin: auto 0;
+    margin: 0;
 
 
     display: flex;

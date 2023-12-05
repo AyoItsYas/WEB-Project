@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "data": [
+    {
+      "id": 9123,
+      "name": "Test Product",
+      "price": 100,
+      "description": "Test Product Description",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
+}

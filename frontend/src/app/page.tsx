@@ -1,10 +1,22 @@
-import Link from 'next/link';
+"use client";
+
 import React from 'react';
+import Config from '@/config';
+import ProductCarousel from '../components/product/ProductCarousel';
+import type { Product } from '@/types';
+import { useAPI } from '@/utils';
 
-export default function Home({ children }: { children: React.ReactNode }) {
-  return <div>Home Page
+export default function Home() {
+  const trendingProducts = useAPI<Product[]>("/products/trending");
 
-    <Link href="/product/1">Product Page</Link>
-  </div> ;
+  return (
+    <div>
+      {
+        trendingProducts ?
+          <ProductCarousel heading="Trending Products" products={trendingProducts}/> :
+          <div>Loading...</div>
+      }
+    </div>
+  );
 }
 
