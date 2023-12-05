@@ -1,9 +1,9 @@
 .container {
+  font-family: inherit;
   display: flex;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  background-color: rgb(223, 140, 240);
+  background-color: rgb(255, 255, 255);
   align-items: center;
   margin: 20px; 
 }
@@ -19,33 +19,6 @@
   text-align: center;
 }
 
-.LoginBox,
-.SignupBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: auto; 
-  background-color: white;
-  padding: 20px; 
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.LoginForm label,
-.SignupForm label {
-  margin-bottom: 8px;
-}
-
-.LoginForm input,
-.SignupForm input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  box-sizing: border-box; 
-}
 
 
 

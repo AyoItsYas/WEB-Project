@@ -1,14 +1,49 @@
-.LoginForm,
-.SignupForm {
-  flex: 1;
-  padding: 20px;
-  box-sizing: border-box;
+.h4{
+  font-family: 'Segoe UI', bold;
+  font-size: 35px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
-.LoginForm {
-  background-color: #ffffff;
+.form{
+  display: inline-block;
+  align-items: center;
+  height: 270px;
+  width: 350px;
+  margin-bottom: 170px;
+}
+.text_area{
+  align-content: center;
+  margin-bottom: 35px;
+  width: 100%;
+  height: 64px;
 }
 
-.SignupForm {
-  background-color: #f2f2f2;
+.text_input{
+  margin-top: 1.2rem;
+  font-size: 20px;
+  border: none;
+  width: 90%;
+  text-align: center;
+  background-color: #ffffffc2;
+}
+
+.btn{
+  margin-top: 28px;
+  width: 100%;
+  height: 60px;
+  background: #e67481d0;
+  border: none;
+  font-size: 20px;
+  color: #000000d0;
+  cursor: pointer;
+  position: relative;
+}
+
+.login{
+  display: inline-block;
+  background: #f1c5cad0;
+  width: 434px;
+  height: 700px;
+  margin-top: 10%;
 }
