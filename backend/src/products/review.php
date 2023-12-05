@@ -2,6 +2,30 @@
 
 require_once "../_lib/database.php";
 
+function handler() {
+
+  $fields = ["rating", "review", "email", "product_id"];
+
+  [$valid, $err, [
+    $rating, $review, $email, $product_id  
+  ]] = validateFields($_POST, $fields);
+
+  if(!$valid) {
+    return [400, ["error" => $err]];
+  }
+
+  $db = connect();
+
+  $sql = "INSERT INTO reviews VALUES ($rating, '$review', '$email', $product_id)";
+
+  if(mysqli_query($db, $sql)) {
+    return [200, ["message" => "Review added"]];
+  } else {
+    return [500, ["error" => "Failed to add review"]];
+  }
+
+}
+
 function validateFields($request, $fields) {
 
   $data = [];
@@ -24,34 +48,6 @@ function validateFields($request, $fields) {
 
 }
 
-function addReview() {
-
-  $fields = ["rating", "review", "email", "product_id"];
-
-  [$valid, $err, $data] = validateFields($_POST, $fields);
-
-  if(!$valid) {
-    return [400, ["error" => $err]];
-  }
-
-  $db = connect("reviews");
-
-  $rating = $data['rating'];
-  $review = $data['review'];
-  $email = $data['email']; 
-  $product_id = $data['product_id'];
-
-  $sql = "INSERT INTO reviews VALUES ($rating, '$review', $email, $product_id)";
-
-  if(mysqli_query($db, $sql)) {
-    return [200, ["message" => "Review added"]];
-  } else {
-    return [500, ["error" => "Failed to add review"]];
-  }
-
-}
-
-echo json_encode(...addReview());
+echo json_encode(...handler());
 
 ?>
-

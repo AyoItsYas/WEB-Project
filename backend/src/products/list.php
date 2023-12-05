@@ -18,6 +18,6 @@ function handler() {
   return [$STST, $DATA];
 }
 
-respond(handler);
+respond(...handler());
 
 ?>
