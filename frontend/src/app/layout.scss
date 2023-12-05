@@ -2,6 +2,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: system-ui !important;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 html {
@@ -15,16 +25,23 @@ body {
   margin: 0;
   background: rgba(255, 226, 255, 0.259);
   padding: 0;
+  color: rgb(113, 1, 241);
 }
 
 body > * {
   padding: 0 100px;
 }
 
-main {
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
-  height: calc(100vh - 260px);
+  gap: 30px;
+  height: 100vh;
+  // height: calc(100vh - 260px);
+}
+
+.loadingIndicator {
+  margin: auto;
 }

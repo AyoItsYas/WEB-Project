@@ -4,21 +4,29 @@ import Config from "./config";
 import { APIResponse } from "./types";
 import { useState, useEffect } from "react";
 
-function processResponse(response: Response) {
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-  return response.json();
-}
+function useFetch<X>(url: string, params: Object = {}): X | null {
+  let first = true;
+  for (const [key, value] of Object.entries(params)) {
+    if (typeof value !== "string") {
+      throw new Error(`Invalid parameter type for ${key}`);
+    }
 
-function useFetch<X>(url: string): X | null {
+    const connector = first ? "?" : "&";
+
+    if (first) {
+      first = false;
+    }
+
+    url += `${connector}${key}=${value}`;
+  }
+
   const [data, setData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(url);
-      const json = await response.json();
-      setData(json);
+      const response = fetch(url)
+        .then((response) => response.json())
+        .then((data) => setData(data));
     }
     fetchData();
   }, [url]);
@@ -26,18 +34,18 @@ function useFetch<X>(url: string): X | null {
   return data;
 }
 
-function useAPI<X>(url: string): X | null {
-  const data = useFetch<APIResponse>(`${Config.API_HOST}/${url}`);
+function useAPI<X>(url: string, params?: object): X | null | string {
+  const data = useFetch<APIResponse>(`${Config.API_HOST}/${url}`, params);
 
   if (!data) {
     return null;
   }
 
   if (data?.error) {
-    throw new Error(data.error);
+    return data.error;
   }
 
-  if (!data?.message) {
+  if (data?.message) {
     console.log(data.message);
   }
 

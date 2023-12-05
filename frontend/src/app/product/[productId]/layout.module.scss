@@ -1,9 +1,11 @@
+$MARGIN_X: 30px;
+
 .container {
   display: flex;
   flex-direction: row;
   margin: auto;
   height: 100%;
-  max-height: 50vh;
+  height: calc(100% - ($MARGIN_X * 2));
 }
 
 .container > * {

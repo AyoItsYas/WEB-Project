@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -26,12 +27,17 @@ export default function RootLayout({
           <NavBar.Item>
             <a href="/login">Login</a>
           </NavBar.Item>
+
           <NavBar.Item>
             <a href="/signup">Sign Up</a>
           </NavBar.Item>
+
+          <NavBar.Item>
+            <a href="/cart">Cart</a>
+          </NavBar.Item>
         </NavBar>
 
-        <main>{children}</main>
+        {children}
 
         <Footer />
       </body>

@@ -2,13 +2,19 @@ import Image from "next/image";
 
 import styles from "./ProductView.module.scss";
 
-import type { Product } from "../../types";
+import type { Product, ProductReview } from "../../types";
+import Link from "next/link";
 
 export default function ProductView({ product }: { product: Product }) {
   return (
     <div className={styles.ProductView}>
       <div className={styles.ProductImage}>
-        <Image src={product.image} alt={product.name} fill={true} />
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill={true}
+          priority={true}
+        />
       </div>
     </div>
   );
@@ -46,5 +52,15 @@ function ProductDetails({ product }: { product: Product }) {
 }
 
 ProductView.Details = ProductDetails;
+
+function ProductReview({ review }: { review: ProductReview }) {
+  return (
+    <div className={styles.ProductReview}>
+      <p>{review.description}</p>
+    </div>
+  );
+}
+
+ProductView.Review = ProductReview;
 
 export { ProductView };

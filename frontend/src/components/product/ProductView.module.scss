@@ -1,3 +1,5 @@
+$MARGIN_X: 30px;
+
 @mixin common {
   display: flex;
   flex-direction: column;
@@ -10,11 +12,7 @@
 .ProductView {
   @include common;
 
-  $MARGIN_X: 30px;
-
   position: relative;
-  margin: $MARGIN_X 0;
-  height: calc(100% - ($MARGIN_X * 2));
 
   .ProductImage {
     position: absolute;
@@ -38,7 +36,7 @@
   @include common;
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
   }
 
@@ -48,10 +46,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.35);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    border-top: 3px solid rgba(113, 1, 241, 0.25);
+    border-bottom: 3px solid rgba(113, 1, 241, 0.25);
     padding: 15px 0;
-    font-size: 26px;
+    font-size: 22px;
 
     .Indicators {
       display: flex;
@@ -107,7 +105,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.298);
     border: none;
     border-radius: 5px;
-    background: #7f2ad3;
+    background: rgb(113, 1, 241);
     padding: 15px 20px;
     color: white;
     font-weight: bold;

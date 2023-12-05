@@ -6,6 +6,14 @@ interface Product {
   image: string;
 }
 
+interface ProductReview {
+  id: number;
+  userId: number;
+  productId: number;
+  rating: number;
+  description: string;
+}
+
 interface APIResponse {
   status: number;
   data?: Array<any> | any;
@@ -13,4 +21,4 @@ interface APIResponse {
   message?: string;
 }
 
-export type { Product, APIResponse };
+export type { Product, ProductReview, APIResponse };

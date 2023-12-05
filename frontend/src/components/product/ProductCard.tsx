@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
@@ -8,15 +9,21 @@ import type { Product } from "@/types";
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className={styles.ProductCard}>
-      <div className={styles.ProductImage}>
-        <Image src={product.image} alt={product.name} fill={true} />
-      </div>
+      <Link href={`/product/${product.id}`}>
+        <div className={styles.ProductImage}>
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={150}
+            height={150}
+          />
+        </div>
 
-      <div className={styles.ProductInfo}>
-        <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <p>{product.price}</p>
-      </div>
+        <div className={styles.ProductInfo}>
+          <h3>{product.name}</h3>
+          <label>{product.price} LKR</label>
+        </div>
+      </Link>
     </div>
   );
 }

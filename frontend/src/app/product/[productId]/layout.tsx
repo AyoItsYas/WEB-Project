@@ -7,10 +7,12 @@ export default function Layout(props: {
   children: React.ReactNode;
 }) {
   return (
-    <div className={styles.container}>
-      <div>{props.product}</div>
+    <section>
+      <div className={styles.container}>
+        {props.product}
 
-      <div>{props.children}</div>
-    </div>
+        <div>{props.children}</div>
+      </div>
+    </section>
   );
 }

@@ -7,9 +7,11 @@ import style from "./layout.module.scss";
 
 export default function Page() {
   return (
-    <div className={style.container}>
-      <LoginForm />
-      <SignupForm />
-    </div>
+    <section>
+      <div className={style.container}>
+        <LoginForm />
+        <SignupForm />
+      </div>
+    </section>
   );
 }
