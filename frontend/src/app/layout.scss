@@ -9,12 +9,12 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  margin: 0;
   background: rgba(255, 226, 255, 0.259);
+  padding: 0;
 }
 
 body > * {
@@ -22,9 +22,9 @@ body > * {
 }
 
 main {
-  height: calc(100vh - 260px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
+  height: calc(100vh - 260px);
 }

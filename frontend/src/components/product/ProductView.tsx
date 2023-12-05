@@ -8,7 +8,7 @@ export default function ProductView({ product }: { product: Product }) {
   return (
     <div className={styles.ProductView}>
       <div className={styles.ProductImage}>
-        <Image src={product.image} alt={product.name} fill={true}/>
+        <Image src={product.image} alt={product.name} fill={true} />
       </div>
     </div>
   );

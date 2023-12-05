@@ -1,8 +1,8 @@
 "use client";
 
-import Config from './config';
-import { APIResponse } from './types';
-import { useState, useEffect } from 'react';
+import Config from "./config";
+import { APIResponse } from "./types";
+import { useState, useEffect } from "react";
 
 function processResponse(response: Response) {
   if (!response.ok) {
