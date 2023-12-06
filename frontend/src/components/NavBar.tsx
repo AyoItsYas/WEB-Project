@@ -1,5 +1,5 @@
+import Link from "next/link";
 import Image from "next/image";
-
 import styles from "@/components/NavBar.module.scss";
 
 function NavBar({
@@ -17,7 +17,9 @@ function NavBar({
 }) {
   return (
     <nav className={styles.NavBar}>
-      <h1>Kpop Fiesta</h1>
+      <Link href="/">
+        <h1>Kpop Fiesta</h1>
+      </Link>
 
       <div className={styles.NavBarItems}>{children}</div>
     </nav>

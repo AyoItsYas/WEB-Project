@@ -6,9 +6,15 @@ import styles from "./ProductCard.module.scss";
 
 import type { Product } from "@/types";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({
+  product,
+  className,
+}: {
+  product: Product;
+  className?: string;
+}) {
   return (
-    <div className={styles.ProductCard}>
+    <div className={`${className} ${styles.ProductCard}`}>
       <Link href={`/product/${product.id}`}>
         <div className={styles.ProductImage}>
           <Image

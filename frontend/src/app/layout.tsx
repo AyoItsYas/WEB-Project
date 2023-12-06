@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 
+import { FaCartShopping, FaUser } from "react-icons/fa6";
+
 import "./layout.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,15 +27,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar>
           <NavBar.Item>
-            <a href="/login">Login</a>
+            <a href="/login">
+              <FaUser />
+            </a>
           </NavBar.Item>
 
           <NavBar.Item>
-            <a href="/signup">Sign Up</a>
-          </NavBar.Item>
-
-          <NavBar.Item>
-            <a href="/cart">Cart</a>
+            <a href="/cart">
+              <FaCartShopping />
+            </a>
           </NavBar.Item>
         </NavBar>
 

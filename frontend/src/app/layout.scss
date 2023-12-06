@@ -25,7 +25,7 @@ body {
   margin: 0;
   background: rgba(255, 226, 255, 0.259);
   padding: 0;
-  color: rgb(113, 1, 241);
+  color: rgba(113, 1, 241, 0.524);
 }
 
 body > * {
@@ -39,9 +39,22 @@ section {
   align-items: space-between;
   gap: 30px;
   height: 100vh;
-  // height: calc(100vh - 260px);
 }
 
 .loadingIndicator {
   margin: auto;
+}
+
+.embla {
+  overflow: hidden;
+
+  .embla__container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
 }
