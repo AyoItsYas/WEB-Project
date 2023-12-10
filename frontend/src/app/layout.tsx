@@ -1,8 +1,11 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
+
+import { FaCartShopping, FaUser } from "react-icons/fa6";
 
 import "./layout.scss";
 
@@ -20,18 +23,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={inter.className}>
         <NavBar>
           <NavBar.Item>
-            <a href='/login'>Login</a>
+            <a href="/login">
+              <FaUser />
+            </a>
           </NavBar.Item>
+
           <NavBar.Item>
-            <a href='/signup'>Sign Up</a>
+            <a href="/cart">
+              <FaCartShopping />
+            </a>
           </NavBar.Item>
         </NavBar>
 
-        <main>{children}</main>
+        {children}
 
         <Footer />
       </body>

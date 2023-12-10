@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "embla-carousel-autoplay": "^8.0.0-rc15",
+    "embla-carousel-react": "^8.0.0-rc15",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
@@ -21,7 +23,17 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.0",
     "prettier-plugin-css-order": "^2.0.1",
     "typescript": "^5"
+  },
+  "paths": {
+    "@": [
+      "../"
+    ],
+    "@components/*": [
+      "src/components/*"
+    ]
   }
 }

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import styles from './Common.module.scss';
-import { useRouter } from 'next/router';
+import React from "react";
+import styles from "./Common.module.scss";
 
 export default function SignupForm() {
 
@@ -37,27 +36,40 @@ export default function SignupForm() {
   };
 
   return (
-    <form  className={styles.LoginForm}>
-      <h2>Sign Up</h2>
-
+    <form className={styles.LoginForm}>
       <span className={styles.inputRowContainer}>
         <div className={styles.inputRow}>
-          <label htmlFor="fullName">Name</label>
-          <input className={`${styles.textInput} ${styles.textArea}`} type="text" id="fullName" name="fullName" placeholder="Enter your name" />
+          <label htmlFor='fullName'>Name</label>
+          <input
+            className={`${styles.textInput} ${styles.textArea}`}
+            type='text'
+            id='fullName'
+            name='fullName'
+          />
         </div>
 
         <div className={styles.inputRow}>
-          <label htmlFor="email">Email</label>
-          <input className={`${styles.textInput} ${styles.textArea}`} type="email" id="email" name="email" placeholder="Enter your email" />
+          <label htmlFor='email'>Email</label>
+          <input
+            className={`${styles.textInput} ${styles.textArea}`}
+            type='email'
+            id='email'
+            name='email'
+          />
         </div>
 
         <div className={styles.inputRow}>
-          <label htmlFor="newPassword">Password</label>
-          <input className={`${styles.textInput} ${styles.textArea}`} type="password" id="newPassword" name="newPassword" placeholder="Enter a new password" />
+          <label htmlFor='newPassword'>Password</label>
+          <input
+            className={`${styles.textInput} ${styles.textArea}`}
+            type='password'
+            id='newPassword'
+            name='newPassword'
+          />
         </div>
       </span>
 
-      <button type="submit" onClick={handleSignup}>Sign Up</button>
+      <button type='submit'>Sign Up</button>
     </form>
-  )
-};
+  );
+}

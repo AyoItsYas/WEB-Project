@@ -1,26 +1,30 @@
-import React from 'react';
+"use client";
 
-import ProductView from '@/components/product/ProductView';
+import React from "react";
+import ProductView from "@/components/product/ProductView";
 
-import type { Product } from '../../../../types';
+import { useAPI } from "@/utils";
 
-export default async function Page({ params } : { params: { productId: string } }) {
-  const data : Array<Product> = await fetch('http://localhost:3000/api/products.json').then((res) => res.json()).then((res) => res.data)
+import type { Product } from "../../../types";
 
-  const product = data.find((product) => product.id.toString() === params.productId);
+export default function Page({ params }: { params: { productId: string } }) {
+  const data = useAPI<Product[]>("/products/list");
+
+  if (!data || typeof data === "string") {
+    return (
+      <section className="loadingIndicator">
+        {data ? data : "Loading..."}
+      </section>
+    );
+  }
+
+  const product = data.find(
+    (product) => product.id.toString() === params.productId,
+  );
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <section>Product not found</section>;
   }
 
   return <ProductView.Details product={product} />;
-
-}
-
-export async function generateStaticParams() {
-  const data : Array<Product> = await fetch('http://localhost:3000/api/products.json').then((res) => res.json()).then((res) => res.data)
-
-  return data.map((product) => ({
-    productId: product.id.toString()
-  }));
 }

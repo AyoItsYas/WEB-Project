@@ -9,7 +9,7 @@ function handler(): array
 
   [$ERROR, $DATA] = extractFields($_POST, ["email", "password"]);
 
-  if ($ERROR) {
+  if ($ERROR !== null) {
     return [400, ["status" => 400, "error" => $ERROR]];
   }
 

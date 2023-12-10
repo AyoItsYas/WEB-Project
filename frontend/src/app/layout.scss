@@ -2,6 +2,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: system-ui !important;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 html {
@@ -9,22 +19,42 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  margin: 0;
   background: rgba(255, 226, 255, 0.259);
+  padding: 0;
+  color: rgba(113, 1, 241, 0.524);
 }
 
 body > * {
   padding: 0 100px;
 }
 
-main {
-  height: calc(100vh - 260px);
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
+  gap: 30px;
+  height: 100vh;
+}
+
+.loadingIndicator {
+  margin: auto;
+}
+
+.embla {
+  overflow: hidden;
+
+  .embla__container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
 }

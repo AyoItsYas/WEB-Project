@@ -2,90 +2,69 @@ $PADDING_X: 15px;
 $PADDING_Y: 15px;
 
 .LoginForm {
-  gap: 15px;
-  height: 100%;
-  padding: $PADDING_X $PADDING_Y;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-
-  border-radius: 5px;
-
-  background: #c19bff;
+  align-items: center;
+  gap: 15px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.148);
-
-  h2 {
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    color: white;
-    font-size: 24px !important;
-  }
+  border-radius: 5px;
+  background: #c19bff;
+  padding: $PADDING_X $PADDING_Y;
+  height: 100%;
 
   button {
-    width: 100%;
-    padding: 10px 20px;
-    margin: 0;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    color: white;
-    background: #7f2ad3;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.298);
     border: none;
     border-radius: 5px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.298);
+    background: rgb(113, 1, 241);
+    // margin-top: auto;
+    padding: 10px 20px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
   }
 
   input {
-    padding: 10px;
-
     border: none;
-
-    text-align: center;
+    padding: 10px;
     font-size: 14px;
     font-family: inherit;
+    text-align: center;
   }
 
   .inputRowContainer {
-    gap: 15px;
-    margin: auto 0;
-
-
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    margin: 0;
 
     .inputRow {
-      gap: 10px;
-      padding: 1px 10px;
-
       display: flex;
       flex-direction: row;
       align-items: center;
-
-      color: rgba(0, 0, 0, 0.457);
-      font-size: 14px;
-
-      text-align: center;
+      gap: 10px;
+      box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.148);
       border-radius: 5px;
       background: white;
-      box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.148);
+      padding: 1px 10px;
+      color: rgba(0, 0, 0, 0.457);
+      font-size: 14px;
+      text-align: center;
 
       * {
         background: transparent;
       }
 
       *:first-child {
+        border-right: 1px solid rgba(0, 0, 0, 0.457);
         width: 40%;
-        border-right: 1px solid rgba(0, 0, 0, 0.457);;
       }
 
       *:last-child {
         width: 50%;
       }
-
     }
   }
 }

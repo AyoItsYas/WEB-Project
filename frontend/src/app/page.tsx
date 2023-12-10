@@ -1,10 +1,30 @@
-import Link from 'next/link';
-import React from 'react';
+"use client";
 
-export default function Home({ children }: { children: React.ReactNode }) {
-  return <div>Home Page
+import React from "react";
+import ProductCarousel from "../components/product/ProductCarousel";
+import type { Product } from "@/types";
+import { useAPI } from "@/utils";
 
-    <Link href="/product/1">Product Page</Link>
-  </div> ;
+export default function Home() {
+  const data = useAPI<Product[]>("/products/trending");
+
+  if (!data || typeof data === "string") {
+    return <div className="loadingIndicator">{data ? data : "Loading..."}</div>;
+  }
+
+  return (
+    <>
+      <section>
+        <ProductCarousel
+          id="new-arrivals"
+          heading="New Arrivals"
+          products={data}
+        />
+      </section>
+
+      <section id="trending">
+        <ProductCarousel heading="Trending Products" products={data} />
+      </section>
+    </>
+  );
 }
-
