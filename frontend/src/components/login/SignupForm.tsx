@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Common.module.scss';
+import { useRouter } from 'next/router';
 
 export default function SignupForm() {
+
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+
+  const handleSignup = async (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+
+   
+    try {                            //idk the pathing
+      const response = await fetch('/signup.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password, name }), 
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        
+
+                      //idk the pathing
+        router.push('/product');
+      } else {
+        console.error('Signup failed');
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+    }
+  };
+
   return (
     <form  className={styles.LoginForm}>
       <h2>Sign Up</h2>
@@ -23,7 +57,7 @@ export default function SignupForm() {
         </div>
       </span>
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" onClick={handleSignup}>Sign Up</button>
     </form>
   )
 };
