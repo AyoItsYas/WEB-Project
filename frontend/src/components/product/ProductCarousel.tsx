@@ -15,7 +15,7 @@ export default function ProductCarousel({
   heading: string;
   products: Product[];
 }) {
-  const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
     <div id={id} className={styles.ProductCarousel}>
@@ -40,13 +40,3 @@ export default function ProductCarousel({
     </div>
   );
 }
-
-// export const EmblaCarousel = () => {
-//   return (
-//         Slide 1</div>
-//         <div className="embla__slide">Slide 2</div>
-//         <div className="embla__slide">Slide 3</div>
-//       </div>
-//     </div>
-
-// };);

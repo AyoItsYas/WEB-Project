@@ -20,10 +20,12 @@ export default function Home() {
           heading="New Arrivals"
           products={data}
         />
-      </section>
 
-      <section id="trending">
-        <ProductCarousel heading="Trending Products" products={data} />
+        <ProductCarousel
+          id="trending"
+          heading="Trending Products"
+          products={data}
+        />
       </section>
     </>
   );
