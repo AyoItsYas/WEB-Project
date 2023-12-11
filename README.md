@@ -20,6 +20,7 @@ set of commands. The build content should then be coppied into the web servers p
 ```
 cd frontend
 
+yarn
 yarn build
 yarn export
 
