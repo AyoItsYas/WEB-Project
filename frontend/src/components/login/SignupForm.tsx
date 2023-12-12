@@ -1,37 +1,39 @@
+"use client";
+
 import React from "react";
 import styles from "./Common.module.scss";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
-
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const handleSignup = async (event: { preventDefault: () => void; }) => {
+  const handleSignup = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
-   
-    try {                            //idk the pathing
-      const response = await fetch('/signup.php', {
-        method: 'POST',
+    try {
+      //idk the pathing
+      const response = await fetch("/signup.php", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password, name }), 
+        body: JSON.stringify({ email, password, name }),
       });
 
       if (response.ok) {
         const responseData = await response.json();
-        
 
-                      //idk the pathing
-        router.push('/product');
+        //idk the pathing
+        router.push("/product");
       } else {
-        console.error('Signup failed');
+        console.error("Signup failed");
       }
     } catch (error) {
-      console.error('Error during signup:', error);
+      console.error("Error during signup:", error);
     }
   };
 
@@ -39,37 +41,37 @@ export default function SignupForm() {
     <form className={styles.LoginForm}>
       <span className={styles.inputRowContainer}>
         <div className={styles.inputRow}>
-          <label htmlFor='fullName'>Name</label>
+          <label htmlFor="fullName">Name</label>
           <input
             className={`${styles.textInput} ${styles.textArea}`}
-            type='text'
-            id='fullName'
-            name='fullName'
+            type="text"
+            id="fullName"
+            name="fullName"
           />
         </div>
 
         <div className={styles.inputRow}>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor="email">Email</label>
           <input
             className={`${styles.textInput} ${styles.textArea}`}
-            type='email'
-            id='email'
-            name='email'
+            type="email"
+            id="email"
+            name="email"
           />
         </div>
 
         <div className={styles.inputRow}>
-          <label htmlFor='newPassword'>Password</label>
+          <label htmlFor="newPassword">Password</label>
           <input
             className={`${styles.textInput} ${styles.textArea}`}
-            type='password'
-            id='newPassword'
-            name='newPassword'
+            type="password"
+            id="newPassword"
+            name="newPassword"
           />
         </div>
       </span>
 
-      <button type='submit'>Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
   );
 }

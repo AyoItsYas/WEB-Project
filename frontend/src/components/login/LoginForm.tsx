@@ -1,21 +1,24 @@
+"use client";
+
 import React from "react";
 import styles from "./Common.module.scss";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = async (event: { preventDefault: () => void; }) => {
+  const handleLogin = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
-    
-    try {                           //idk the pathing
-      const response = await fetch('/login.php', {
-        method: 'POST',
+    try {
+      //idk the pathing
+      const response = await fetch("/login.php", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
@@ -24,16 +27,16 @@ export default function LoginForm() {
         const responseData = await response.json();
         const sessionToken = responseData.data.sessionToken;
 
-                                                        //idk the pathing
+        //idk the pathing
         document.cookie = `sessionToken=${sessionToken}; path=/login.php`;
 
-                      //idk the pathing
-        router.push('/Product');
+        //idk the pathing
+        router.push("/Product");
       } else {
-        console.error('Login failed');
+        console.error("Login failed");
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error("Error during login:", error);
     }
   };
 
@@ -61,7 +64,9 @@ export default function LoginForm() {
         </div>
       </span>
 
-      <button type="submit" onClick={handleLogin}>Login</button>
+      <button type="submit" onClick={handleLogin}>
+        Login
+      </button>
     </form>
   );
 }
