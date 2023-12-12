@@ -1,0 +1,47 @@
+{
+  "status": 200,
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://placehold.co/300",
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, eget al"
+    },
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://placehold.co/300",
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, eget al"
+    },
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://placehold.co/300",
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, eget al"
+    },
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://placehold.co/300",
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, eget al"
+    },
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://placehold.co/300",
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, eget al"
+    },
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://placehold.co/300",
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, eget al"
+    }
+  ]
+}
