@@ -1,81 +1,48 @@
 <?php
 
-require_once "../_lib/utility.php";
-require_once "../_lib/database.php";
+require_once "../_lib/utility.php";  // the utility functions that are used commonly in any given endpoint
+require_once "../_lib/database.php"; // database connection
 
 function handler() {
 
-  // Get order data from request
-  [$error, $orderData] = extractFields($_POST, ['user_id', 'product_id', 'quantity']);
+  $db = connect();
 
-  if($error) {
-    $status = 400;
-    $data = ['error' => $error];
-    return [$status, $data];
-  }
+  $trendingProducts = getTrendingProducts($db);
 
-  // Connect to database
-  $db = connect('ecommerce');
-
-  // Add order to database
-  $result = addOrderToDatabase($db, $orderData);
-
-  if($result) {
-    // Update trending list
-    updateTrendingList($db, $orderData);
-    $status = 201;
-    $data = ['message' => 'Order added successfully'];
-  } else {
-    $status = 400;
-    $data = ['error' => 'Failed to add order']; 
-  }
-
-  return [$status, $data];
+  return respond(200, $trendingProducts);
 
 }
 
-function addOrderToDatabase($db, $data) {
+function getTrendingProducts($db) {
 
   $query = "
-    INSERT INTO orders 
-      (user_id, product_id, quantity) 
-    VALUES
-      ({$data['user_id']}, {$data['product_id']}, {$data['quantity']})
+    SELECT p.*, t.visits, t.purchase_amount, (t.visits + t.purchase_amount) AS score
+    FROM products p
+    JOIN trends t ON p.id = t.product_id
+    ORDER BY score DESC
+    LIMIT 5
   ";
 
-  $result = mysqli_query($db, $query);
+  $result = $db->query($query);
 
-  return $result;
+  $products = [];
 
-}
-
-function updateTrendingList($db, $data) {
-
-  // Check if product already exists in trending list
-  $query = "SELECT * FROM trending WHERE product_id = {$data['product_id']}";
-  $result = mysqli_query($db, $query);
-
-  if(mysqli_num_rows($result) > 0) {
-    // If product exists, increment the visits and update the purchase amount
-    $query = "
-      UPDATE trending 
-      SET visits = visits + 1, purchase_amount = purchase_amount + {$data['quantity']}
-      WHERE product_id = {$data['product_id']}
-    ";
-  } else {
-    // If product does not exist, insert a new record
-    $query = "
-      INSERT INTO trending 
-        (product_id, visits, purchase_amount) 
-      VALUES
-        ({$data['product_id']}, 1, {$data['quantity']})
-    ";
+  if($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $products[] = $row;
+    }
   }
 
-  mysqli_query($db, $query);
+  return $products;
 
 }
 
-respond(...handler());
+function respond($status, $data) {
+  header("Content-Type: application/json");
+  http_response_code($status);
+  echo json_encode($data); 
+}
+
+echo json_encode(...handler());
 
 ?>
