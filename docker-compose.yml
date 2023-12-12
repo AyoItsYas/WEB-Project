@@ -22,7 +22,6 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./.data/public:/var/www/html
       - ./backend/src:/var/www/html
     depends_on:
       - database
