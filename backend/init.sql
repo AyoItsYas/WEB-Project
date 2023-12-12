@@ -90,4 +90,11 @@ CREATE TABLE IF NOT EXISTS orders (
 
 ALTER USER 'user'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'password';C:\xampp\htdocs\myapp\WEB-Project>
 GRANT SELECT, INSERT, UPDATE, DELETE ON @dbName.* TO 'user'@'%';
-FLUSH PRIVILEGES;
+FLUSH PRIVILEGES;  
+
+CREATE TABLE IF NOT EXISTS `trending` (
+  `product_id` int(11) NOT NULL,
+  `visits` int(11) NOT NULL,
+  `purchase_amount` int(11) NOT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 

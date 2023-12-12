@@ -4,9 +4,9 @@ function connect(string $SOCKET = "")
 {
   $PORT = 3306;
   $HOSTNAME = "localhost";
-  $USERNAME = "Derset";
-  $PASSWORD = "password123";
-  $DATABASE = "project";
+  $USERNAME = "user";
+  $PASSWORD = "password";
+  $DATABASE = "KPopFiestaDatabase";
 
   $CONN = mysqli_connect($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE, $PORT, $SOCKET);
 
