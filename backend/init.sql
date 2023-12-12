@@ -72,22 +72,6 @@ CREATE TABLE IF NOT EXISTS orders (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS orders (
-  id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  product_id INT NOT NULL,
-  quantity INT NOT NULL,
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE IF NOT EXISTS orders (
-  id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  product_id INT NOT NULL,
-  quantity INT NOT NULL,
-  PRIMARY KEY (id)
-);
-
 ALTER USER 'user'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'password';C:\xampp\htdocs\myapp\WEB-Project>
 GRANT SELECT, INSERT, UPDATE, DELETE ON @dbName.* TO 'user'@'%';
 FLUSH PRIVILEGES;  
