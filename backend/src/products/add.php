@@ -1,4 +1,3 @@
-```
 <?php
 require_once "../_lib/utility.php";  // the utility functions that are used commonly in any given endpoint
 require_once "../_lib/database.php"; // database connection
