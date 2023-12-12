@@ -88,6 +88,6 @@ function handler(): array
     return [$STST, $DATA];
 }
 
-echo json_encode(...handler());
+respond(...handler());
 
 ?>

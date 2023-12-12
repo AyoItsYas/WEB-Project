@@ -48,6 +48,6 @@ function validateFields($request, $fields) {
 
 }
 
-echo json_encode(...handler());
+respond(...handler());
 
 ?>

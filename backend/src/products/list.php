@@ -18,6 +18,6 @@ function handler() {
   return [$STST, $DATA];
 }
 
-echo json_encode(...handler());
+respond(...handler());
 
 ?>
