@@ -88,6 +88,6 @@ CREATE TABLE IF NOT EXISTS orders (
   PRIMARY KEY (id)
 );
 
-ALTER USER 'user'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'password';
+ALTER USER 'user'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'password';C:\xampp\htdocs\myapp\WEB-Project>
 GRANT SELECT, INSERT, UPDATE, DELETE ON @dbName.* TO 'user'@'%';
 FLUSH PRIVILEGES;
