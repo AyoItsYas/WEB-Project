@@ -7,7 +7,7 @@ function handler(): array
     // Existing code for creating a new product goes here
 
     // Additional logic for getting the 10 most latest products
-    $DB_CONN = connect("products");
+    $DB_CONN = connect();
 
     // Assuming you have a column for the creation timestamp (adjust the column name accordingly)
     $SQL = "SELECT * FROM products ORDER BY created_at DESC LIMIT 10";

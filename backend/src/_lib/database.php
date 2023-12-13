@@ -3,7 +3,7 @@
 function connect(string $SOCKET = "")
 {
   $PORT = 3306;
-  $HOSTNAME = "localhost";
+  $HOSTNAME = "database";
   $USERNAME = "user";
   $PASSWORD = "password";
   $DATABASE = "KPopFiestaDatabase";
