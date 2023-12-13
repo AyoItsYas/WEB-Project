@@ -2,17 +2,10 @@ import React from "react";
 
 import styles from "./layout.module.scss";
 
-export default function Layout(props: {
-  orders: React.ReactNode;
-  children: React.ReactNode;
-}) {
+export default function Layout(props: { children: React.ReactNode }) {
   return (
     <section>
-      <div className={styles.container}>
-        <div>{props.children}</div>
-
-        {props.orders}
-      </div>
+      <div>{props.children}</div>
     </section>
   );
 }
