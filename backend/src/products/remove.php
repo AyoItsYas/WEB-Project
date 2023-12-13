@@ -5,12 +5,12 @@ require_once "../_lib/database.php"; // database connection
 function handler(): array
 {
   // getting the data that is sent from the frontend
-  $pid = $_POST["pid"] ?? null;
+  $pid = $_REQUEST["productId"] ?? null;
   if ($pid == null) {
     $STST = 400;
     $DATA = [
       "status" => $STST,
-      "error" => "Title not provided"
+      "error" => "'productId' is not provided"
     ];
 
     return [$STST, $DATA];
@@ -41,5 +41,5 @@ function handler(): array
 }
 
 respond(...handler());
- 
+
 ?>

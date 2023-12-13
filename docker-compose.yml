@@ -2,8 +2,10 @@ version: "3"
 
 services:
   database:
+    restart: always
     image: mysql:latest
     environment:
+      MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: password
 
@@ -16,6 +18,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
+    restart: always
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -27,6 +30,7 @@ services:
       - database
 
   frontend:
+    restart: always
     build:
       context: ./frontend
       dockerfile: Dockerfile

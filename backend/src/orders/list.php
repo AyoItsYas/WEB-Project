@@ -3,13 +3,14 @@
 require_once "../_lib/utility.php";
 require_once "../_lib/database.php";
 
-function handler() {
+function handler()
+{
 
   $db = connect();
 
   $orders = getAllOrders($db);
 
-  if(!$orders) {
+  if (!$orders) {
     return respond(404, ['error' => 'No orders found']);
   }
 
@@ -17,7 +18,8 @@ function handler() {
 
 }
 
-function getAllOrders($db) {
+function getAllOrders($db)
+{
 
   $query = "SELECT * FROM orders";
 
@@ -25,20 +27,14 @@ function getAllOrders($db) {
 
   $orders = [];
 
-  if($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
       $orders[] = $row;
     }
   }
 
   return $orders;
 
-}
-
-function respond($status, $data) {
-  header("Content-Type: application/json");
-  http_response_code($status);
-  echo json_encode($data);
 }
 
 respond(...handler());

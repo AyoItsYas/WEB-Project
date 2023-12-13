@@ -1,42 +1,41 @@
 <?php
+require_once "../_lib/utility.php";
+require_once "../_lib/database.php";
 
-require_once "../_lib/utility.php";  // the utility functions that are used commonly in any given endpoint
-require_once "../_lib/database.php"; // database connection
+function handler(): array
+{
+    $DB_CONN = connect();
 
-function handler() {
-
-  $db = connect();
-
-  $trendingProducts = getTrendingProducts($db);
-
-  return respond(200, $trendingProducts);
-
-}
-
-function getTrendingProducts($db) {
-
-  $query = "
-    SELECT p.*, t.visits, t.purchase_amount, (t.visits + t.purchase_amount) AS score
+    $SQL = "SELECT p.*, p.visits, p.total_purchases, (p.visits + p.total_purchases) AS score
     FROM products p
-    JOIN trends t ON p.id = t.product_id
     ORDER BY score DESC
-    LIMIT 5
-  ";
+    LIMIT 50
+    ";
 
-  $result = $db->query($query);
+    $RESULT = mysqli_query($DB_CONN, $SQL);
 
-  $products = [];
+    if ($RESULT) {
+        $PRODUCTS = [];
+        while ($PRODUCT = mysqli_fetch_assoc($RESULT)) {
+            $PRODUCTS[] = $PRODUCT;
+        }
 
-  if($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      $products[] = $row;
+        $STST = 200;
+        $DATA = [
+            "status" => $STST,
+            "data" => $PRODUCTS,
+            "message" => "Products retrieved successfully",
+        ];
+    } else {
+        $STST = 400;
+        $DATA = [
+            "status" => $STST,
+            "error" => "Failed to retrieve latest products"
+        ];
     }
-  }
 
-  return $products;
-
+    return [$STST, $DATA];
 }
 
 respond(...handler());
-
 ?>
