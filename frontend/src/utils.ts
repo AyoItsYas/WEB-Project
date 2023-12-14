@@ -35,7 +35,7 @@ function useFetch<X>(url: string, params: Object = {}): X | null {
 }
 
 function useAPI<X>(url: string, params?: object): X | null | string {
-  const data = useFetch<APIResponse>(`${Config.API_HOST}${url}`, params);
+  const data = useFetch<APIResponse>(`${Config.API_HOST}${url}.php`, params);
 
   if (!data) {
     return null;

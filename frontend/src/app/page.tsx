@@ -6,25 +6,22 @@ import type { Product } from "@/types";
 import { useAPI } from "@/utils";
 
 export default function Home() {
-  const data = useAPI<Product[]>("/products/trending");
-
-  if (!data || typeof data === "string") {
-    return <div className="loadingIndicator">{data ? data : "Loading..."}</div>;
-  }
+  const latestProducts = useAPI<Product[]>("/products/latest");
+  const trendingProducts = useAPI<Product[]>("/products/trending");
 
   return (
     <>
       <section>
         <ProductCarousel
-          id="new-arrivals"
-          heading="New Arrivals"
-          products={data}
+          id="latest"
+          heading="Latest Products"
+          products={latestProducts}
         />
 
         <ProductCarousel
           id="trending"
           heading="Trending Products"
-          products={data}
+          products={trendingProducts}
         />
       </section>
     </>

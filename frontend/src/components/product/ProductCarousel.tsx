@@ -13,7 +13,7 @@ export default function ProductCarousel({
 }: {
   id?: string;
   heading: string;
-  products: Product[];
+  products: Product[] | string | null;
 }) {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
@@ -25,17 +25,21 @@ export default function ProductCarousel({
       </div>
 
       <div className={styles.ProductCarouselInner}>
-        <div className="embla" ref={emblaRef}>
-          <div className="embla__container">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                className={`embla__slide`}
-              />
-            ))}
+        {!products || typeof products === "string" ? (
+          <>Loading...</>
+        ) : (
+          <div className="embla" ref={emblaRef}>
+            <div className="embla__container">
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  className={`embla__slide`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

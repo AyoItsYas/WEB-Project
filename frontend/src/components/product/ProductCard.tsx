@@ -26,8 +26,7 @@ export default function ProductCard({
         </div>
 
         <div className={styles.ProductInfo}>
-          <h3>{product.name}</h3>
-          <label>{product.price} LKR</label>
+          <h3>{product.name}</h3>g<label>{product.price} LKR</label>
         </div>
       </Link>
     </div>

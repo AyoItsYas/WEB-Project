@@ -2,8 +2,11 @@
 
 function respond($STST, $DATA): void
 {
+  sleep(2);
+
   http_response_code($STST);
   header('Content-Type: application/json; charset=utf-8');
+  header('Access-Control-Allow-Origin: *');
   echo json_encode($DATA);
 }
 

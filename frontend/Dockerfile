@@ -19,30 +19,32 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN yarn build
+CMD yarn dev
 
-FROM base AS runner
-WORKDIR /app
+# RUN yarn build
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+# FROM base AS runner
+# WORKDIR /app
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# ENV NODE_ENV production
+# ENV NEXT_TELEMETRY_DISABLED 1
 
-COPY --from=builder /app/public ./public
+# RUN addgroup --system --gid 1001 nodejs
+# RUN adduser --system --uid 1001 nextjs
 
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
+# COPY --from=builder /app/public ./public
 
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# RUN mkdir .next
+# RUN chown nextjs:nodejs .next
 
-USER nextjs
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-EXPOSE 3000
+# USER nextjs
 
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+# EXPOSE 3000
 
-CMD ["node", "server.js"]
+# ENV PORT 3000
+# ENV HOSTNAME "0.0.0.0"
+
+# CMD ["node", "server.js"]

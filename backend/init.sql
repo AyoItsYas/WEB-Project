@@ -5,9 +5,10 @@ CREATE DATABASE KPopFiestaDatabase;
 USE KPopFiestaDatabase;
 
 CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
   password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  PRIMARY KEY (email)
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE productCategories (
@@ -34,9 +35,10 @@ CREATE TABLE reviews (
   id INT NOT NULL AUTO_INCREMENT,
   rating INT,
   review TEXT,
-  email VARCHAR(255),
+  user_id INT,
   product_id INT,
   PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
@@ -53,22 +55,30 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON KPopFiestaDatabase.* TO 'user'@'%';
 FLUSH PRIVILEGES;
 
 INSERT INTO productCategories (name) VALUES
+  ('Miscellaneous'),
   ('Albums'),
   ('Posters'),
   ('Lightsticks'),
   ('Clothing'),
-  ('Accessories'),
-  ('Miscellaneous');
+  ('Accessories');
 
 INSERT INTO products (name, price, description, image, category_id) VALUES
-  ('BTS - Map of the Soul: 7', 24.99, 'BTS - Map of the Soul: 7', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Answer', 24.99, 'BTS - Love Yourself: Answer', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://i.imgur.com/6X6XJ8b.jpg', 1),
-  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://i.imgur.com/6X6XJ8b.jpg', 1);
+  ('BTS - Map of the Soul: 7', 24.99, 'BTS - Map of the Soul: 7', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Answer', 24.99, 'BTS - Love Yourself: Answer', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Her', 24.99, 'BTS - Love Yourself: Her', 'https://placehold.co/300', 1),
+  ('BTS - Map of the Soul: 7', 24.99, 'BTS - Map of the Soul: 7', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Answer', 24.99, 'BTS - Love Yourself: Answer', 'https://placehold.co/300', 1),
+  ('BTS - Love Yourself: Tear', 24.99, 'BTS - Love Yourself: Tear', 'https://placehold.co/300', 1);
