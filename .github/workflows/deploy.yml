@@ -11,10 +11,10 @@ jobs:
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
+          host: ${{ secrets.production.HOST }}
+          username: ${{ secrets.production.USERNAME }}
+          key: ${{ secrets.production.KEY }}
+          port: ${{ secrets.production.PORT }}
           script: |
             cd /WEB-Project
             git pull
