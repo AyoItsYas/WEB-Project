@@ -4,17 +4,18 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Deploy to DigitalOcean
+      - name: Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.production.HOST }}
-          username: ${{ secrets.production.USERNAME }}
-          key: ${{ secrets.production.KEY }}
-          port: ${{ secrets.production.PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: |
             cd /WEB-Project
             git pull
