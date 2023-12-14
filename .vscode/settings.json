@@ -1,0 +1,7 @@
+{
+  "yaml.schemas": {
+    "https://bitbucket.org/atlassianlabs/atlascode/raw/ad68df731f5c0e6baf2cdc37b5a8d86eb3449e3d/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+    "https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json": "docker-compose.yml",
+    "https://json.schemastore.org/github-workflow.json": "file:///mnt/9275c84f-279a-4dd7-b9fd-dca73b6df9a6/Documents/Workspaces/NSBM/WEB-Project/.github/workflows/deploy.yml"
+  }
+}
