@@ -23,9 +23,10 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - 8080:80
+      - 80:80
     volumes:
-      - ./backend/src:/var/www/html
+      - ./backend/src:/var/www/html/api
+      - ./backend/000-default.conf:/etc/apache2/sites-available/000-default.conf
     depends_on:
       - database
 
@@ -35,7 +36,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - 80:3000
+      - 3000:3000
     depends_on:
       - database
       - backend
