@@ -1,1 +1,3 @@
 .data/
+.cert/
+.exclude/

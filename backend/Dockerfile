@@ -7,6 +7,7 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 # ENTRYPOINT "mysql -u ${MYSQL_ROOT_USER} -p${MYSQL_ROOT_PASSWORD} < /docker-entrypoint-initdb.d/build.sql"
 
 RUN a2enmod proxy
+RUN a2enmod ssl && a2enmod socache_shmcb
 
 COPY src/ .
 EXPOSE 80
