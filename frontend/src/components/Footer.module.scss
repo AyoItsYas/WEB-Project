@@ -33,3 +33,11 @@
     flex: 1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .Footer {
+    flex-direction: column;
+    padding: 30px;
+    height: auto;
+  }
+}

@@ -28,8 +28,10 @@ services:
     volumes:
       - ./backend/src:/var/www/html/api
       - ./backend/000-default.conf:/etc/apache2/sites-available/000-default.conf
-      - /etc/letsencrypt/live/kpopfiesta.live/fullchain.pem:/etc/ssl/certs/ssl_cert.crt
-      - /etc/letsencrypt/live/kpopfiesta.live/privkey.pem:/etc/ssl/private/ssl_cert.key
+      - ./.cert/mycert.crt:/etc/ssl/certs/ssl_cert.crt
+      - ./.cert/mycert.key:/etc/ssl/private/ssl_cert.key
+      # - /etc/letsencrypt/live/kpopfiesta.live/fullchain.pem:/etc/ssl/certs/ssl_cert.crt
+      # - /etc/letsencrypt/live/kpopfiesta.live/privkey.pem:/etc/ssl/private/ssl_cert.key
     depends_on:
       - database
 
@@ -38,8 +40,12 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    environment:
+      - DEBUG=${DEBUG}
     ports:
       - 3000:3000
     depends_on:
       - database
       - backend
+    volumes:
+      - ./frontend:/app

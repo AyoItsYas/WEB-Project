@@ -33,3 +33,13 @@ $MARGIN_X: 30px;
   flex: 1 1 auto;
   width: 50%;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container > div {
+    width: 100%;
+  }
+}

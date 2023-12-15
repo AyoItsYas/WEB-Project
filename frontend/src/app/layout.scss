@@ -2,16 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-width: none;
   font-family: system-ui !important;
+  -ms-overflow-style: none;
 }
 
 *::-webkit-scrollbar {
   display: none;
-}
-
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 html {
@@ -32,6 +29,12 @@ body > * {
   padding: 0 100px;
 }
 
+@media screen and (max-width: 768px) {
+  body > * {
+    padding: 0 40px;
+  }
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -40,6 +43,12 @@ section {
   gap: 30px;
   height: 100vh;
   height: calc(100vh - 180px);
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    height: calc(100vh - 90px);
+  }
 }
 
 .loadingIndicator {

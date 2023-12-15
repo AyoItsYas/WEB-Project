@@ -3,7 +3,9 @@ import Image from "next/image";
 import styles from "./ProductView.module.scss";
 
 import type { Product, ProductReview } from "../../types";
-import Link from "next/link";
+
+import ProductCarousel from "./ProductCarousel";
+import { useAPI } from "../../utils";
 
 export default function ProductView({ product }: { product: Product }) {
   return (
@@ -23,6 +25,7 @@ export default function ProductView({ product }: { product: Product }) {
 ProductView.style = styles;
 
 function ProductDetails({ product }: { product: Product }) {
+  const trendingProducts = useAPI<Product[]>("/products/trending");
   return (
     <div className={styles.ProductDetails}>
       <span className={styles.PricingRail}>
