@@ -47,5 +47,5 @@ services:
     depends_on:
       - database
       - backend
-    volumes:
-      - ./frontend:/app
+    # volumes:
+    # - ./frontend:/app
