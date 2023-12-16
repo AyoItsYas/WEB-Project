@@ -1,36 +1,16 @@
 <?php
+
 require_once "../_lib/utility.php";
-require_once "../_lib/database.php";
+require_once "../_models/Product.php";
 
-function handler(): array
-{
-  $DB_CONN = connect();
+registerHandler(function (): array {
+  $PRODUCTS = Product::query("SELECT * FROM products ORDER BY created_at DESC LIMIT 10");
 
-  $SQL = "SELECT * FROM products ORDER BY created_at DESC LIMIT 100";
-  $RESULT = mysqli_query($DB_CONN, $SQL);
+  $STATUS = 200;
+  $DATA = $PRODUCTS;
+  $MESSAGE = "success";
 
-  if ($RESULT) {
-    $PRODUCTS = [];
-    while ($PRODUCT = mysqli_fetch_assoc($RESULT)) {
-      $PRODUCTS[] = $PRODUCT;
-    }
+  return [$STATUS, $DATA, $MESSAGE];
+});
 
-    $STST = 200;
-    $DATA = [
-      "status" => $STST,
-      "message" => "Products retrieved successfully",
-      "data" => $PRODUCTS,
-    ];
-  } else {
-    $STST = 400;
-    $DATA = [
-      "status" => $STST,
-      "error" => "Failed to retrieve latest products"
-    ];
-  }
-
-  return [$STST, $DATA];
-}
-
-respond(...handler());
 ?>

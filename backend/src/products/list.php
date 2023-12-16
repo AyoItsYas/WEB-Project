@@ -1,41 +1,18 @@
 <?php
 
-require_once "../_lib/utility.php";  // the utility functions that are used commonly in any given endpoint
-require_once "../_lib/database.php"; // database connection
+require_once "../_lib/utility.php";
+require_once "../_lib/database.php";
+require_once "../_models/Product.php";
 
-function handler()
-{
-  $SQL = "SELECT * FROM products LIMIT 100";
+registerHandler(function (): array {
+  $PRODUCTS = Product::getAll();
 
-  $DB_CONN = connect("products");
-  $RESULT = mysqli_query($DB_CONN, $SQL);
+  $STATUS = 200;
+  $DATA = $PRODUCTS;
+  $MESSAGE = "success";
 
-  if ($RESULT) {
-    $DATA = [];
-    while ($ROW = mysqli_fetch_assoc($RESULT)) {
-      $DATA[] = $ROW;
-    }
+  return [$STATUS, $DATA, $MESSAGE];
+});
 
-    $STST = 200;
-    $DATA = [
-      "status" => $STST,
-      "data" => $DATA
-    ];
-  } else {
-    $STST = 400;
-    $DATA = [
-      "status" => $STST,
-      "error" => "Failed to retrieve latest products"
-    ];
-
-    return [$STST, $DATA];
-  }
-
-
-
-  return [$STST, $DATA];
-}
-
-respond(...handler());
 
 ?>

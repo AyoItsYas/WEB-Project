@@ -24,7 +24,7 @@ CREATE TABLE products (
   description VARCHAR(255) NOT NULL,
   image VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  category_id INT NOT NULL DEFAULT 1,
+  category_id INT NOT NULL DEFAULT 0,
   visits INT DEFAULT 0,
   total_purchases INT DEFAULT 0,
   PRIMARY KEY (id),

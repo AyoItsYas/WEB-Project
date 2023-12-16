@@ -2,8 +2,10 @@ version: "3"
 
 services:
   database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
     restart: always
-    image: mysql:latest
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_USER: ${MYSQL_ROOT_USER}
@@ -15,7 +17,6 @@ services:
       - 3306:3306
     volumes:
       - ./.data/database-data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
     restart: always

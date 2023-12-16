@@ -1,17 +1,14 @@
 <?php
 require_once "_lib/utility.php";
 
-function handler(): array
-{
-  $STST = 200;
-  $DATA = [
-    "status" => $STST,
-    "message" => "Hello World!"
-  ];
+$HANDLER = function (string $ECHO = null): array {
+  $STATUS = 200;
+  $DATA = null;
+  $MESSAGE = "Hello World!" . (($ECHO) ? " ~ " . $ECHO : "");
 
-  return [$STST, $DATA];
-}
+  return [$STATUS, $DATA, $MESSAGE];
+};
 
-respond(...handler());
+registerHandler($HANDLER, [], ["echo"]);
 
 ?>
