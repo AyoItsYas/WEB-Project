@@ -61,6 +61,8 @@ class BaseModel
 
     $SQL .= ")";
 
+    // echo $SQL;
+
     return getDatabaseClient()->query($SQL);
   }
 

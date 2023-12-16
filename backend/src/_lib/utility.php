@@ -41,6 +41,23 @@ function extractFields(array $FIELDS = [], array $OPTIONAL_FIELDS = []): array
       throw new Exception("Missing required field: $FIELD");
     }
 
+    if (preg_match("/[\'\"]/", $_REQUEST[$FIELD])) {
+      throw new Exception("Invalid field: $FIELD"); // SQL injection attempt
+    }
+
+    $DATA[] = $_REQUEST[$FIELD];
+  }
+
+  foreach ($OPTIONAL_FIELDS as $FIELD) {
+    if (!isset($_REQUEST[$FIELD])) {
+      $DATA[] = null;
+      continue;
+    }
+
+    if (preg_match("/[\'\"]/", $_REQUEST[$FIELD])) {
+      throw new Exception("Invalid field: $FIELD"); // SQL injection attempt
+    }
+
     $DATA[] = $_REQUEST[$FIELD];
   }
 

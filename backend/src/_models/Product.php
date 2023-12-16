@@ -16,6 +16,24 @@ class Product extends BaseModel
     "total_purchases" => null,
   ];
 
+  public static $REQUIRED_FIELDS = [
+    "name",
+    "price",
+    "description",
+    "image",
+  ];
+
+  public static $OPTIONAL_FIELDS = [
+    "category_id",
+    "visits",
+    "total_purchases",
+  ];
+
+  public static $SYSTEM_FIELDS = [
+    "id",
+    "created_at",
+  ];
+
   public $id = null;
   public $name = null;
   public $price = null;
