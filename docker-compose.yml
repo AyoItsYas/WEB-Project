@@ -6,11 +6,11 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_HOST: "%"
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_USER: ${MYSQL_ROOT_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - 3306:3306
     volumes:
@@ -28,10 +28,8 @@ services:
     volumes:
       - ./backend/src:/var/www/html/api
       - ./backend/000-default.conf:/etc/apache2/sites-available/000-default.conf
-      # - ./.cert/mycert.crt:/etc/ssl/certs/ssl_cert.crt
-      # - ./.cert/mycert.key:/etc/ssl/private/ssl_cert.key
-      - /etc/letsencrypt/live/kpopfiesta.live/fullchain.pem:/etc/ssl/certs/ssl_cert.crt
-      - /etc/letsencrypt/live/kpopfiesta.live/privkey.pem:/etc/ssl/private/ssl_cert.key
+      - ${SSL_CERT}:/etc/ssl/certs/ssl_cert.crt
+      - ${SSL_CERT_KEY}:/etc/ssl/private/ssl_cert.key
     depends_on:
       - database
 
