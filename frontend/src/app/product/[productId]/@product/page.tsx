@@ -14,9 +14,5 @@ export default function Page({ params }: { params: { productId: string } }) {
     );
   }
 
-  if (!product) {
-    return <div>Product not found</div>;
-  }
-
   return <ProductView product={product} />;
 }

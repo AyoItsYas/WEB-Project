@@ -4,7 +4,6 @@ import styles from "./ProductView.module.scss";
 
 import type { Product, ProductReview } from "../../types";
 
-import ProductCarousel from "./ProductCarousel";
 import { useAPI } from "../../utils";
 
 export default function ProductView({ product }: { product: Product }) {
