@@ -7,6 +7,8 @@ registerHandler(
   function ($password, $email): array {
     $USER = new User();
 
+    $password = hash("sha256", $password);
+
     $USER->password = $password;
     $USER->email = $email;
 
@@ -14,7 +16,7 @@ registerHandler(
     $USER->refresh();
 
     $STATUS = 200;
-    $DATA = $USER;
+    $DATA = ["valid" => true];
     $MESSAGE = "success";
 
     return [$STATUS, $DATA, $MESSAGE];

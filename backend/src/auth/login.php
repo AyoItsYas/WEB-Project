@@ -7,9 +7,11 @@ registerHandler(
   function ($email, $password): array {
     $USER = User::getByEmail($email);
 
+    $password = hash("sha256", $password);
+
     if (!$USER) {
       $STATUS = 404;
-      $DATA = null;
+      $DATA = ["valid" => false];
       $MESSAGE = "user not found";
 
       return [$STATUS, $DATA, $MESSAGE];
@@ -17,14 +19,14 @@ registerHandler(
 
     if ($password != $USER->password) {
       $STATUS = 401;
-      $DATA = null;
+      $DATA = ["valid" => false];
       $MESSAGE = "invalid password";
 
       return [$STATUS, $DATA, $MESSAGE];
     }
 
     $STATUS = 200;
-    $DATA = $USER;
+    $DATA = ["valid" => true];
     $MESSAGE = "success";
 
     return [$STATUS, $DATA, $MESSAGE];

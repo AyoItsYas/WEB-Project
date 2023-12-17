@@ -8,11 +8,13 @@ class User extends BaseModel
     "id" => null,
     "password" => null,
     "email" => null,
+    "admin" => null,
   ];
 
   public static $REQUIRED_FIELDS = [
     "password",
     "email",
+    "admin",
   ];
 
   public static $OPTIONAL_FIELDS = [];
@@ -24,6 +26,7 @@ class User extends BaseModel
   public $id = null;
   public $password = null;
   public $email = null;
+  public $admin = null;
 
   public static function getByEmail($email)
   {
@@ -36,13 +39,12 @@ class User extends BaseModel
     if (!$RESULT)
       return null;
 
-    $USER = new User();
+    $MODEL = new User();
 
-    foreach ($RESULT as $KEY => $VALUE) {
-      $USER->$KEY = $VALUE;
+    foreach ($RESULT[0] as $KEY => $VALUE) {
+      $MODEL->$KEY = $VALUE;
     }
-
-    return $USER;
+    return $MODEL;
   }
 
 }
