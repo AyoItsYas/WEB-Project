@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_USER: ${MYSQL_ROOT_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.data/database-data:/var/lib/mysql
+
+  backend:
+    restart: always
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./backend/src:/var/www/html/api
+      - ./backend/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ${SSL_CERT}:/etc/ssl/certs/ssl_cert.crt
+      - ${SSL_CERT_KEY}:/etc/ssl/private/ssl_cert.key
+    depends_on:
+      - database
+
+  frontend:
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    environment:
+      ENV_VARIABLE: ${ENV_VARIABLE}
+      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+      - backend
+    volumes:
+      - ./frontend:/app

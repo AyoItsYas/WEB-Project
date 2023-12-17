@@ -38,13 +38,12 @@ services:
     restart: always
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: prod.Dockerfile
     environment:
-      - DEBUG=${DEBUG}
+      ENV_VARIABLE: ${ENV_VARIABLE}
+      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
     ports:
       - 3000:3000
     depends_on:
       - database
       - backend
-    # volumes:
-    # - ./frontend:/app
