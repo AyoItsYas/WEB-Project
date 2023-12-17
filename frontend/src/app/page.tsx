@@ -17,7 +17,8 @@ export default function Home() {
           heading="Latest Products"
           products={latestProducts}
         />
-
+      </section>
+      <section>
         <ProductCarousel
           id="trending"
           heading="Trending Products"
