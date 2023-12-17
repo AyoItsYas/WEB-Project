@@ -106,11 +106,11 @@ class BaseModel
 
     $SQL = "SELECT * FROM $TABLE_NAME WHERE id = $ID";
 
-    $RESULT = getDatabaseClient()->query($SQL);
+    $RESULT = getDatabaseClient()->query($SQL)->fetch_assoc();
 
     $MODEL = new static();
 
-    foreach ($RESULT[0] as $KEY => $VALUE) {
+    foreach ($RESULT as $KEY => $VALUE) {
       $MODEL->$KEY = $VALUE;
     }
 
