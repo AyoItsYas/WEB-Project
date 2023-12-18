@@ -3,7 +3,7 @@ import style from "./layout.module.scss";
 
 export default function Page() {
   return (
-    <div className={style.contactUsPage}>
+    <section className={style.contactUsPage}>
       <div className={style.contactDetails}>
         <h1>Contact Us</h1>
         <p>Email: contact@example.com</p>
@@ -46,6 +46,6 @@ export default function Page() {
           <button type="submit">Submit</button>
         </form>
       </span>
-    </div>
+    </section>
   );
 }

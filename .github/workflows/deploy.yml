@@ -19,4 +19,4 @@ jobs:
           script: |
             cd WEB-Project/
             git pull
-            docker compose up -d --build
+            docker compose -f prod.docker-compose.yml up --build

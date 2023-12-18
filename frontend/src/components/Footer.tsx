@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./Footer.module.scss";
 import React from "react";
 
@@ -9,8 +11,9 @@ function FooterModule() {
         <p>WE are kpop stans</p>
         <p>FAQ</p>
       </div>
+
       <div>
-        <a href="">Contact Us</a>
+        <Link href="/contact">Contact Us</Link>
         <p>Email: contact@example.com</p>
         <p>Phone: +1 (123) 456-7890</p>
       </div>

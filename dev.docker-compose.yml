@@ -42,8 +42,6 @@ services:
     environment:
       ENV_VARIABLE: ${ENV_VARIABLE}
       NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
-    ports:
-      - 3000:3000
     depends_on:
       - database
       - backend
