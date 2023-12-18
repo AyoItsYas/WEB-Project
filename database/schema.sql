@@ -55,6 +55,9 @@ ALTER USER 'user'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'password';
 GRANT SELECT, INSERT, UPDATE, DELETE ON KPopFiestaDatabase.* TO 'user'@'%';
 FLUSH PRIVILEGES;
 
+INSERT INTO users (password, email, admin) VALUES
+  ('password', 'yasiru.dharmathilaka@gmail.com', TRUE);
+
 INSERT INTO productCategories (name) VALUES
   ('Miscellaneous'),
   ('Albums'),
