@@ -1,4 +1,5 @@
-# WEB-Project
+# WEB-Project 
+[![.github/workflows/deploy.yml](https://github.com/AyoItsYas/WEB-Project/actions/workflows/deploy.yml/badge.svg)](https://github.com/AyoItsYas/WEB-Project/actions/workflows/deploy.yml)
 
 ## Setting Up
 
