@@ -4,15 +4,7 @@ import React from "react";
 
 import styles from "./Common.module.scss";
 
-interface LoginData {
-  valid: boolean;
-}
-
 export default function LoginForm() {
-  const [loginData, setLoginData] = React.useState<LoginData>({
-    valid: false,
-  });
-
   return (
     <form className={styles.LoginForm}>
       <span className={styles.inputRowContainer}>

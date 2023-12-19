@@ -1,13 +1,11 @@
-"use client";
-
 import React from "react";
 import ProductCarousel from "../components/product/ProductCarousel";
 import type { Product } from "@/types";
-import { useAPI } from "@/utils";
+import { fetchAPI } from "@/utils";
 
-export default function Home() {
-  const latestProducts = useAPI<Product[]>("/products/latest");
-  const trendingProducts = useAPI<Product[]>("/products/trending");
+export default async function Home() {
+  const latestProducts = await fetchAPI<Product[]>("/products/latest");
+  const trendingProducts = await fetchAPI<Product[]>("/products/trending");
 
   return (
     <>

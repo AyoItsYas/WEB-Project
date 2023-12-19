@@ -1,12 +1,10 @@
-"use client";
-
 import type { ProductReview } from "@/types";
-import { useAPI } from "@/utils";
+import { fetchAPI } from "@/utils";
 import ProductView from "@/components/product/ProductView";
 
-export default function Page({ params }: { params: { productId: string } }) {
-  const data = useAPI<ProductReview[]>("/reviews", {
-    productId: params.productId,
+export default async function Page({ params }: { params: { id: string } }) {
+  const data = await fetchAPI<ProductReview[]>("/reviews", {
+    productId: params.id,
     limit: 10,
   });
 

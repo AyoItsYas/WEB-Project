@@ -1,8 +1,6 @@
-"use client";
-
 import React from "react";
 
-import styles from "./layout.module.scss";
+import "./layout.scss";
 
 export default function Layout(props: {
   product: React.ReactNode;
@@ -10,7 +8,7 @@ export default function Layout(props: {
 }) {
   return (
     <section>
-      <div className={styles.container}>
+      <div className="container">
         {props.product}
 
         <div>{props.children}</div>

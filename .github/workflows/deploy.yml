@@ -20,3 +20,14 @@ jobs:
             cd WEB-Project/
             git pull
             docker compose -f prod.docker-compose.yml up --build -d
+      - name: Database Schema
+        if: github.event_name == 'push' && github.event.head_commit.modified contains 'database/schema.sql'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd WEB-Project/
+            docker exec -i $(docker ps -qf "ancestor=web-project-database") mysql -s -u ${{ secrets.MYSQL_ROOT_USER }} -p${{ secrets.MYSQL_ROOT_PASSWORD }} --quite < database/schema.sql

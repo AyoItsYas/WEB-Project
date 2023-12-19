@@ -4,7 +4,7 @@ import styles from "./ProductView.module.scss";
 
 import type { Product, ProductReview } from "../../types";
 
-import { useAPI } from "../../utils";
+import { fetchAPI } from "../../utils";
 
 export default function ProductView({ product }: { product: Product }) {
   return (
@@ -23,8 +23,8 @@ export default function ProductView({ product }: { product: Product }) {
 
 ProductView.style = styles;
 
-function ProductDetails({ product }: { product: Product }) {
-  const trendingProducts = useAPI<Product[]>("/products/trending");
+async function ProductDetails({ product }: { product: Product }) {
+  const trendingProducts = fetchAPI<Product[]>("/products/trending");
   return (
     <div className={styles.ProductDetails}>
       <span className={styles.PricingRail}>

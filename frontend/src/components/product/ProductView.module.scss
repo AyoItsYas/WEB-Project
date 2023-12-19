@@ -7,6 +7,12 @@ $MARGIN_X: 30px;
   gap: 30px;
   padding: 50px;
   height: 100%;
+
+  @media screen and (max-width: 1200px) {
+    & {
+      padding: 0px;
+    }
+  }
 }
 
 .ProductView {
@@ -27,7 +33,7 @@ $MARGIN_X: 30px;
 
     img {
       aspect-ratio: 1/1;
-      object-fit: contain;
+      object-fit: fill;
     }
   }
 }
@@ -35,8 +41,14 @@ $MARGIN_X: 30px;
 .ProductDetails {
   @include common;
 
+  @media screen and (max-width: 1200px) {
+    & {
+      padding: 0;
+    }
+  }
+
   p {
-    font-size: 16px;
+    font-size: 18px;
     text-align: justify;
   }
 
@@ -51,6 +63,15 @@ $MARGIN_X: 30px;
     padding: 15px 0;
     font-size: 22px;
 
+    @media screen and (max-width: 1200px) {
+      & {
+        flex-direction: column;
+        gap: 0;
+        padding: 5px 0;
+        font-size: 16px;
+      }
+    }
+
     .Indicators {
       display: flex;
       flex-direction: row;
@@ -59,6 +80,12 @@ $MARGIN_X: 30px;
 
       * {
         flex: 1;
+      }
+
+      @media screen and (max-width: 1200px) {
+        & {
+          display: none;
+        }
       }
     }
 
@@ -107,10 +134,18 @@ $MARGIN_X: 30px;
     border-radius: 5px;
     background: rgb(113, 1, 241);
     padding: 15px 20px;
+    width: 50%;
     color: white;
     font-weight: bold;
     font-size: 20px;
     font-family: inherit;
     text-transform: uppercase;
+
+    @media screen and (max-width: 1200px) {
+      & {
+        padding: 10px 15px;
+        font-size: 16px;
+      }
+    }
   }
 }

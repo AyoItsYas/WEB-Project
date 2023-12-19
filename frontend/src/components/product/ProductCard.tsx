@@ -17,12 +17,7 @@ export default function ProductCard({
     <div className={`${className} ${styles.ProductCard}`}>
       <Link href={`/product/${product.id}`}>
         <div className={styles.ProductImage}>
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={150}
-            height={150}
-          />
+          <Image src={product.image} alt={product.name} layout="fill" />
         </div>
 
         <div className={styles.ProductInfo}>

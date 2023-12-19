@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import ProductCard from "./ProductCard";
 import styles from "./ProductCarousel.module.scss";
@@ -15,7 +17,7 @@ export default function ProductCarousel({
   heading: string;
   products: Product[] | string | null;
 }) {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   return (
     <div id={id} className={styles.ProductCarousel}>

@@ -42,8 +42,9 @@ services:
     environment:
       ENV_VARIABLE: ${ENV_VARIABLE}
       NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+      URL: ${URL}
+      API_URL: ${API_URL}
     depends_on:
-      - database
       - backend
     volumes:
       - ./frontend:/app

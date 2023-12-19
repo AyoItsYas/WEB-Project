@@ -1,12 +1,10 @@
-"use client";
-
-import { useAPI } from "@/utils";
+import { fetchAPI } from "@/utils";
 import ProductView from "@/components/product/ProductView";
 
-import type { Product } from "../../../../types";
+import type { Product } from "@/types";
 
-export default function Page({ params }: { params: { productId: string } }) {
-  const product = useAPI<Product>("/products/get", { id: params.productId });
+export default async function Page({ params }: { params: { id: string } }) {
+  const product = await fetchAPI<Product>("/products/get", { id: params.id });
 
   if (!product || typeof product === "string") {
     return (

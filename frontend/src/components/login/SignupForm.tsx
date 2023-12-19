@@ -1,8 +1,7 @@
 "use client";
-import React, { useState } from "react";
+
+import React from "react";
 import styles from "./Common.module.scss";
-import { useRouter } from "next/navigation";
-import { useAPI } from "@/utils";
 
 export default function SignupForm() {
   // const router = useRouter();
@@ -35,16 +34,6 @@ export default function SignupForm() {
     <form className={styles.LoginForm}>
       <span className={styles.inputRowContainer}>
         <div className={styles.inputRow}>
-          <label htmlFor="fullName">Name</label>
-          <input
-            className={`${styles.textInput} ${styles.textArea}`}
-            type="text"
-            id="fullName"
-            name="fullName"
-          />
-        </div>
-
-        <div className={styles.inputRow}>
           <label htmlFor="email">Email</label>
           <input
             className={`${styles.textInput} ${styles.textArea}`}
@@ -61,6 +50,16 @@ export default function SignupForm() {
             type="password"
             id="newPassword"
             name="newPassword"
+          />
+        </div>
+
+        <div className={styles.inputRow}>
+          <label htmlFor="confPassword">Confirm</label>
+          <input
+            className={`${styles.textInput} ${styles.textArea}`}
+            type="password"
+            id="confPassword"
+            name="confPassword"
           />
         </div>
       </span>

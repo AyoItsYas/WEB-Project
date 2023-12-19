@@ -4,6 +4,10 @@ interface Product {
   price: number;
   description: string;
   image: string;
+  created_at: string;
+  category_id: number;
+  visits: number;
+  total_purchases: number;
 }
 
 interface ProductReview {
@@ -14,11 +18,4 @@ interface ProductReview {
   description: string;
 }
 
-interface APIResponse {
-  status: number;
-  data?: Array<any> | any;
-  error?: string;
-  message?: string;
-}
-
-export type { Product, ProductReview, APIResponse };
+export type { Product, ProductReview };

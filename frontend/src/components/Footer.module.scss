@@ -34,9 +34,10 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .Footer {
     flex-direction: column;
+    gap: 30px;
     padding: 30px;
     height: auto;
   }
