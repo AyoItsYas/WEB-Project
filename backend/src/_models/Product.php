@@ -34,7 +34,6 @@ class Product extends BaseModel
     "created_at",
   ];
 
-  public $id = null;
   public $name = null;
   public $price = null;
   public $description = null;

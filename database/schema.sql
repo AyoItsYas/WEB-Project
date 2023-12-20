@@ -6,8 +6,9 @@ USE KPopFiestaDatabase;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
-  password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(512) NOT NULL,
+  session VARCHAR(512),
   admin BOOLEAN DEFAULT FALSE,
   PRIMARY KEY (id)
 );
@@ -54,9 +55,6 @@ CREATE TABLE orders (
 ALTER USER 'user'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'password';
 GRANT SELECT, INSERT, UPDATE, DELETE ON KPopFiestaDatabase.* TO 'user'@'%';
 FLUSH PRIVILEGES;
-
-INSERT INTO users (password, email, admin) VALUES
-  ('password', 'yasiru.dharmathilaka@gmail.com', TRUE);
 
 INSERT INTO productCategories (name) VALUES
   ('Miscellaneous'),

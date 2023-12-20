@@ -1,37 +1,67 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import styles from "./Common.module.scss";
+import { fetchAPI } from "@/clientUtils";
+
+interface ValidLogin {
+  valid: boolean;
+  session: string;
+}
 
 export default function SignupForm() {
-  // const router = useRouter();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [name, setName] = useState("");
+  const router = useRouter();
 
-  // const handleSignup = async (event: { preventDefault: () => void; }) => {
-  //   event.preventDefault();
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-  //   try {
-  //     const response = useAPI('signup.php', {
-  //       email,
-  //       password,
-  //       name,
-  //     });
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
 
-  //     if (response) {
-  //       console.log('Signup successful:', response);
-  //       router.push('/product');
-  //     } else {
-  //       console.error('Signup failed');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error during signup:', error);
-  //   }
-  // };
+    let message = "Invalid signup";
+
+    if (data.password !== data.confPassword) {
+      return;
+    }
+
+    try {
+      const login = await fetchAPI<ValidLogin>("/auth/signup", {
+        email: data.email,
+        password: data.password,
+      });
+
+      if (login.valid) {
+        document.cookie = "loggedIn=true;max-age=60*1000";
+        document.cookie = `session=${login.session};max-age=60*1000`;
+
+        message = "Signup successful";
+        router.push("/login");
+      }
+    } catch (exceptionVar) {
+      console.log(exceptionVar);
+    }
+
+    const target = event.target as HTMLFormElement;
+    const submitButton = target.querySelector("button[type=submit]");
+
+    if (!submitButton) {
+      return;
+    }
+
+    const originalText = submitButton?.textContent;
+
+    submitButton.innerHTML = message;
+
+    setTimeout(() => {
+      submitButton.textContent = originalText;
+    }, 2000);
+
+    target.reset();
+  }
 
   return (
-    <form className={styles.LoginForm}>
+    <form className={styles.LoginForm} onSubmit={(e) => handleSubmit(e)}>
       <span className={styles.inputRowContainer}>
         <div className={styles.inputRow}>
           <label htmlFor="email">Email</label>
@@ -40,16 +70,18 @@ export default function SignupForm() {
             type="email"
             id="email"
             name="email"
+            autoComplete="email"
           />
         </div>
 
         <div className={styles.inputRow}>
-          <label htmlFor="newPassword">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             className={`${styles.textInput} ${styles.textArea}`}
             type="password"
-            id="newPassword"
-            name="newPassword"
+            id="password"
+            name="password"
+            autoComplete="new-password"
           />
         </div>
 
@@ -60,6 +92,7 @@ export default function SignupForm() {
             type="password"
             id="confPassword"
             name="confPassword"
+            autoComplete="new-password"
           />
         </div>
       </span>

@@ -35,17 +35,26 @@ function registerHandler(
 function extractFields(array $FIELDS = [], array $OPTIONAL_FIELDS = []): array
 {
   $DATA = [];
+  $BODY = json_decode(file_get_contents("php://input"), true);
 
   foreach ($FIELDS as $FIELD) {
+    $VALUE = null;
+
     if (!isset($_REQUEST[$FIELD])) {
-      throw new Exception("Missing required field: $FIELD");
+      if (isset($BODY[$FIELD])) {
+        $VALUE = $BODY[$FIELD];
+      } else {
+        throw new Exception("Missing required field: $FIELD");
+      }
+    } else {
+      $VALUE = $_REQUEST[$FIELD];
     }
 
-    if (preg_match("/[\'\"]/", $_REQUEST[$FIELD])) {
+    if (preg_match("/[\'\"]/", $VALUE)) {
       throw new Exception("Invalid field: $FIELD"); // SQL injection attempt
     }
 
-    $DATA[] = $_REQUEST[$FIELD];
+    $DATA[] = $VALUE;
   }
 
   foreach ($OPTIONAL_FIELDS as $FIELD) {

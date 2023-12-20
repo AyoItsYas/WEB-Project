@@ -1,3 +1,5 @@
+"use client";
+
 interface APIData {
   status: number;
   data: object | object[];
@@ -31,7 +33,13 @@ async function fetchAPI<X>(
     path += `${connector}${key}=${value}`;
   }
 
-  const API_URL = process.env.API_URL;
+  const isServer = typeof window === "undefined";
+
+  let API_URL = window.location.origin + "/api";
+  if (isServer) {
+    API_URL = process.env.API_URL || API_URL;
+  }
+
   const response = await fetch(`${API_URL}${path}`, {
     headers,
     ...options,

@@ -5,6 +5,7 @@ require_once "../_lib/database.php";
 
 class BaseModel
 {
+  public $id = null;
   public static $FIELDS = [];
   public static $REQUIRED_FIELDS = [];
   public static $OPTIONAL_FIELDS = [];
@@ -79,6 +80,35 @@ class BaseModel
     foreach ($DATA as $KEY => $VALUE) {
       $this->$KEY = $VALUE;
     }
+  }
+
+  public function update()
+  {
+    $TABLE_NAME = static::getTableName();
+
+    $SQL = "UPDATE $TABLE_NAME SET ";
+
+    $FIRST = true;
+
+    foreach ($this as $KEY => $VALUE) {
+      if (in_array($KEY, static::$SYSTEM_FIELDS))
+        continue;
+
+      if (!$VALUE)
+        continue;
+
+      if ($FIRST) {
+        $FIRST = false;
+      } else {
+        $SQL .= ", ";
+      }
+
+      $SQL .= "$KEY = '$VALUE'";
+    }
+
+    $SQL .= " WHERE id = $this->id";
+
+    return getDatabaseClient()->query($SQL);
   }
 
   public static function query($SQL)

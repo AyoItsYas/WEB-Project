@@ -7,8 +7,6 @@ registerHandler(
   function ($email, $password): array {
     $USER = User::getByEmail($email);
 
-    $password = hash("sha256", $password);
-
     if (!$USER) {
       $STATUS = 404;
       $DATA = ["valid" => false];
@@ -16,6 +14,8 @@ registerHandler(
 
       return [$STATUS, $DATA, $MESSAGE];
     }
+
+    $password = hash("sha256", $password);
 
     if ($password != $USER->password) {
       $STATUS = 401;
@@ -25,8 +25,14 @@ registerHandler(
       return [$STATUS, $DATA, $MESSAGE];
     }
 
+    $HASH = hash("sha256", $USER->id . $USER->email . $USER->password . time());
+
+    $USER->session = $HASH;
+    $USER->update();
+    $USER->refresh();
+
     $STATUS = 200;
-    $DATA = ["valid" => true];
+    $DATA = ["valid" => true, "session" => $USER->session];
     $MESSAGE = "success";
 
     return [$STATUS, $DATA, $MESSAGE];

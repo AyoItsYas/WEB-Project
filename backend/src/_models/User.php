@@ -6,14 +6,15 @@ class User extends BaseModel
 {
   public static $FIELDS = [
     "id" => null,
-    "password" => null,
     "email" => null,
+    "password" => null,
     "admin" => null,
+    "session" => null,
   ];
 
   public static $REQUIRED_FIELDS = [
-    "password",
     "email",
+    "password",
     "admin",
   ];
 
@@ -23,10 +24,10 @@ class User extends BaseModel
     "id",
   ];
 
-  public $id = null;
   public $password = null;
   public $email = null;
   public $admin = null;
+  public $session = null;
 
   public static function getByEmail($email)
   {
